@@ -223,12 +223,12 @@ main(
     HMODULE  library = NULL;
     LONG     error;
     PCHAR    coinstallerVersion;
-
+    /*
     __asm
     {
         int 3
     }
-
+    */
     //
     // Parse command line args
     //   -l     -- loop option
@@ -351,9 +351,9 @@ main(
     //
     // Unload the driver.  Ignore any errors.
     //
-    ManageDriver( DRIVER_NAME,
-                  driverLocation,
-                  DRIVER_FUNC_REMOVE );
+//    ManageDriver( DRIVER_NAME,
+//                  driverLocation,
+//                  DRIVER_FUNC_REMOVE );
 
     //
     // Unload WdfCoInstaller.dll

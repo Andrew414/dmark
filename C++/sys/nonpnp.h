@@ -86,5 +86,6 @@ PrintChars(
     _In_ size_t CountChars
     );
 
+
 #pragma warning(disable:4127)
 
