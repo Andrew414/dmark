@@ -85,6 +85,7 @@
   <ItemGroup>
     <ClCompile Include="..\sys\core.c" />
     <ClCompile Include="main.c" />
+    <ClCompile Include="umimpl.c" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

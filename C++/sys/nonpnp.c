@@ -28,7 +28,9 @@ Environment:
 --*/
 
 #include "nonpnp.h"
+#include "core.h"
 
+PH_MARK_PROCESS g_ProcessTable = NULL;
 
 #ifdef ALLOC_PRAGMA
 #pragma alloc_text( INIT, DriverEntry )
@@ -43,15 +45,51 @@ Environment:
 #pragma alloc_text( PAGE, FileEvtIoDeviceControl)
 #endif // ALLOC_PRAGMA
 
+void* malloc(SIZE_T x)
+{
+    return ExAllocatePoolWithTag(NonPagedPool, x, 'hsaH');
+}
+
+void free(void* x)
+{
+    ExFreePoolWithTag(x, 'hsaH');
+}
+
+VOID PrintCUnicodeString(PCUNICODE_STRING str)
+{
+    short* c = (short*)str->Buffer;
+    unsigned int i = 0;
+    for (; *c && i <= str->Length; c++, i += 2)
+    {
+        KdPrint(("%C", *c));
+    }
+}
+
 VOID ProcessCreationCallback(
     _Inout_   PEPROCESS              Process,
     _In_      HANDLE                 ProcessId,
     _In_opt_  PPS_CREATE_NOTIFY_INFO CreateInfo
     )
 {
+    H_MARK_PROCESS NewProc = {0};
+    HANDLE PidCopy = ProcessId;
+
     UNREFERENCED_PARAMETER(Process);
-    UNREFERENCED_PARAMETER(CreateInfo);
-    KdPrint(("Something with process: %d", ProcessId));
+    if (!CreateInfo)
+    {
+        KdPrint(("Process %d (%x) finished\n", ProcessId, PidCopy));
+  
+        return;
+    }
+
+    RtlCopyMemory(NewProc.proc.szImagePath, CreateInfo->ImageFileName->Buffer, MIN(CreateInfo->ImageFileName->Length, sizeof(NewProc.proc.szImagePath)));
+    RtlCopyMemory(NewProc.proc.szProcessName, CreateInfo->CommandLine->Buffer, MIN(CreateInfo->CommandLine->Length, sizeof(NewProc.proc.szProcessName)));
+    NewProc.proc.pid = (long)ProcessId;
+    NewProc.proc.ppid = (long)CreateInfo->ParentProcessId;
+
+    KdPrint(("Process %d (%x) \"", ProcessId, PidCopy));
+    PrintCUnicodeString(CreateInfo->ImageFileName);
+    KdPrint(("\" started by PID %d\n", CreateInfo->ParentProcessId));
 }
 
 NTSTATUS
@@ -550,6 +588,11 @@ Return Value:
     return;
 }
 
+int SendEvent(PMARK_EVENT evt)
+{
+    UNREFERENCED_PARAMETER(evt);
+    return 0;
+}
 
 VOID
 FileEvtIoRead(
@@ -1245,6 +1288,8 @@ Return Value:
     UNREFERENCED_PARAMETER(Driver);
 
     PAGED_CODE();
+
+    PsSetCreateProcessNotifyRoutineEx(ProcessCreationCallback, TRUE);
 
     KdPrint(( "Entered NonPnpDriverUnload\n"));
 

@@ -26,5 +26,8 @@
     <ClCompile Include="..\sys\core.c">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="umimpl.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>

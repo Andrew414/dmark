@@ -2,7 +2,10 @@
 
 int HandleControlNotification(PMARK_MESSAGE msg)
 {
-    msg;
+    if (msg->code)
+    {
+
+    }
     return 0;
 }
 
@@ -14,18 +17,20 @@ int HandleInfoNotification(PMARK_MESSAGE msg)
 
 int HandleProcessEvent(PMARK_EVENT evt)
 {
-    evt;
-    return 0;
+    return SendEvent(evt);
 }
 
 int HandlePacketEvent(PMARK_EVENT evt)
 {
-    evt;
-    return 0;
+    return SendEvent(evt);
 }
 
 int HandleRegistryEvent(PMARK_EVENT evt)
 {
-    evt;
-    return 0;
+    return SendEvent(evt);
+}
+
+int HandleFileEvent(PMARK_EVENT evt)
+{
+    return SendEvent(evt);
 }
