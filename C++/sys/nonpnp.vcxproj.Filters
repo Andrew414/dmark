@@ -18,6 +18,9 @@
     <ClCompile Include="nonpnp.c">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="core.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="nonpnp.h">
@@ -45,6 +48,19 @@
     </ClInclude>
     <ClInclude Include="public.h" />
     <ClInclude Include="trace.h" />
+    <ClInclude Include="nonpnp.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="public.h" />
+    <ClInclude Include="trace.h" />
+    <ClInclude Include="nonpnp.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="public.h" />
+    <ClInclude Include="trace.h" />
+    <ClInclude Include="core.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="nonpnp.rc">
