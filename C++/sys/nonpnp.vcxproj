@@ -351,7 +351,7 @@
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Win7 Release|Win32'">
     <Link>
-      <AdditionalDependencies>%(AdditionalDependencies);$(DDK_LIB_PATH)\ntstrsafe.lib;$(DDK_LIB_PATH)\wdmsec.lib</AdditionalDependencies>
+      <AdditionalDependencies>%(AdditionalDependencies);$(DDK_LIB_PATH)\ntstrsafe.lib;$(DDK_LIB_PATH)\wdmsec.lib;$(DDK_LIB_PATH)\fltmgr.lib</AdditionalDependencies>
     </Link>
     <ClCompile>
       <PreprocessorDefinitions>%(PreprocessorDefinitions);_WIN2K_COMPAT_SLIST_USAGE;_DRIVER_</PreprocessorDefinitions>
@@ -370,7 +370,7 @@
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Win8 Release|Win32'">
     <Link>
-      <AdditionalDependencies>%(AdditionalDependencies);$(DDK_LIB_PATH)\ntstrsafe.lib;$(DDK_LIB_PATH)\wdmsec.lib</AdditionalDependencies>
+      <AdditionalDependencies>%(AdditionalDependencies);$(DDK_LIB_PATH)\ntstrsafe.lib;$(DDK_LIB_PATH)\wdmsec.lib;$(DDK_LIB_PATH)\fltmgr.lib</AdditionalDependencies>
     </Link>
     <ClCompile>
       <PreprocessorDefinitions>%(PreprocessorDefinitions);_WIN2K_COMPAT_SLIST_USAGE;_DRIVER_</PreprocessorDefinitions>
@@ -389,7 +389,7 @@
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Win8.1 Release|Win32'">
     <Link>
-      <AdditionalDependencies>%(AdditionalDependencies);$(DDK_LIB_PATH)\ntstrsafe.lib;$(DDK_LIB_PATH)\wdmsec.lib</AdditionalDependencies>
+      <AdditionalDependencies>%(AdditionalDependencies);$(DDK_LIB_PATH)\ntstrsafe.lib;$(DDK_LIB_PATH)\wdmsec.lib;$(DDK_LIB_PATH)\fltmgr.lib</AdditionalDependencies>
     </Link>
     <ClCompile>
       <PreprocessorDefinitions>%(PreprocessorDefinitions);_WIN2K_COMPAT_SLIST_USAGE;_DRIVER_</PreprocessorDefinitions>
@@ -408,7 +408,7 @@
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Win7 Debug|Win32'">
     <Link>
-      <AdditionalDependencies>%(AdditionalDependencies);$(DDK_LIB_PATH)\ntstrsafe.lib;$(DDK_LIB_PATH)\wdmsec.lib</AdditionalDependencies>
+      <AdditionalDependencies>%(AdditionalDependencies);$(DDK_LIB_PATH)\ntstrsafe.lib;$(DDK_LIB_PATH)\wdmsec.lib;$(DDK_LIB_PATH)\fltmgr.lib</AdditionalDependencies>
       <AdditionalOptions>/integritycheck %(AdditionalOptions)</AdditionalOptions>
     </Link>
     <ClCompile>
@@ -428,7 +428,7 @@
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Win8 Debug|Win32'">
     <Link>
-      <AdditionalDependencies>%(AdditionalDependencies);$(DDK_LIB_PATH)\ntstrsafe.lib;$(DDK_LIB_PATH)\wdmsec.lib</AdditionalDependencies>
+      <AdditionalDependencies>%(AdditionalDependencies);$(DDK_LIB_PATH)\ntstrsafe.lib;$(DDK_LIB_PATH)\wdmsec.lib;$(DDK_LIB_PATH)\fltmgr.lib</AdditionalDependencies>
     </Link>
     <ClCompile>
       <PreprocessorDefinitions>%(PreprocessorDefinitions);_WIN2K_COMPAT_SLIST_USAGE;_DRIVER_</PreprocessorDefinitions>
@@ -447,7 +447,7 @@
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Win8.1 Debug|Win32'">
     <Link>
-      <AdditionalDependencies>%(AdditionalDependencies);$(DDK_LIB_PATH)\ntstrsafe.lib;$(DDK_LIB_PATH)\wdmsec.lib</AdditionalDependencies>
+      <AdditionalDependencies>%(AdditionalDependencies);$(DDK_LIB_PATH)\ntstrsafe.lib;$(DDK_LIB_PATH)\wdmsec.lib;$(DDK_LIB_PATH)\fltmgr.lib</AdditionalDependencies>
     </Link>
     <ClCompile>
       <PreprocessorDefinitions>%(PreprocessorDefinitions);_WIN2K_COMPAT_SLIST_USAGE;_DRIVER_</PreprocessorDefinitions>

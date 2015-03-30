@@ -18,6 +18,7 @@ Environment:
 
 #include <ntddk.h>
 #include <wdf.h>
+//#include <fltKernel.h>
 
 #define NTSTRSAFE_LIB
 #include <ntstrsafe.h>
