@@ -43,9 +43,7 @@
     </ClInclude>
     <ClInclude Include="public.h" />
     <ClInclude Include="trace.h" />
-    <ClInclude Include="nonpnp.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
+    <ClInclude Include="nonpnp.h" />
     <ClInclude Include="public.h" />
     <ClInclude Include="trace.h" />
     <ClInclude Include="nonpnp.h" />
@@ -69,6 +67,34 @@
     <ClInclude Include="nonpnp.h" />
     <ClInclude Include="public.h" />
     <ClInclude Include="trace.h" />
+    <ClInclude Include="core.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="nonpnp.h" />
+    <ClInclude Include="public.h" />
+    <ClInclude Include="trace.h" />
+    <ClInclude Include="uthash.h" />
+    <ClInclude Include="core.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="nonpnp.h" />
+    <ClInclude Include="public.h" />
+    <ClInclude Include="trace.h" />
+    <ClInclude Include="uthash.h" />
+    <ClInclude Include="core.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="nonpnp.h" />
+    <ClInclude Include="public.h" />
+    <ClInclude Include="trace.h" />
+    <ClInclude Include="uthash.h" />
+    <ClInclude Include="core.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="nonpnp.h" />
+    <ClInclude Include="public.h" />
+    <ClInclude Include="trace.h" />
+    <ClInclude Include="uthash.h" />
     <ClInclude Include="core.h">
       <Filter>Header Files</Filter>
     </ClInclude>

@@ -77,7 +77,9 @@ VOID ProcessCreationCallback(
     )
 {
     H_MARK_PROCESS NewProc = {0};
+#ifdef _DEBUG
     HANDLE PidCopy = ProcessId;
+#endif
 
     UNREFERENCED_PARAMETER(Process);
     if (!CreateInfo)
@@ -100,7 +102,8 @@ VOID ProcessCreationCallback(
 VOID FltUnload(_In_ PDRIVER_OBJECT DriverObject)
 {
     UNREFERENCED_PARAMETER(DriverObject);
-    FltUnregisterFilter(pFilter);
+    if (pFilter)
+        FltUnregisterFilter(pFilter);
 }
 
 NTSTATUS
@@ -221,41 +224,17 @@ CONST FLT_REGISTRATION FilterRegistration = {
     NULL            //  NormalizeNameComponent
 };
 
-NTSTATUS
-DriverEntry(
+NTSTATUS 
+StartCommonService(
     IN OUT PDRIVER_OBJECT   DriverObject,
     IN PUNICODE_STRING      RegistryPath
-    )
-/*++
-
-Routine Description:
-    This routine is called by the Operating System to initialize the driver.
-
-    It creates the device object, fills in the dispatch entry points and
-    completes the initialization.
-
-Arguments:
-    DriverObject - a pointer to the object that represents this device
-    driver.
-
-    RegistryPath - a pointer to our Services key in the registry.
-
-Return Value:
-    STATUS_SUCCESS if initialized; an error otherwise.
-
---*/
+)
 {
     NTSTATUS                       status;
     WDF_DRIVER_CONFIG              config;
     WDFDRIVER                      hDriver;
-    PWDFDEVICE_INIT                pInit = NULL;
     WDF_OBJECT_ATTRIBUTES          attributes;
-    INT                            i;
-
-    //__asm int 3;
-
-    KdPrint(("Driver Frameworks NONPNP Legacy Driver Example\n"));
-
+    PWDFDEVICE_INIT                pInit;
 
     WDF_DRIVER_CONFIG_INIT(
         &config,
@@ -285,46 +264,19 @@ Return Value:
     // Create a framework driver object to represent our driver.
     //
     status = WdfDriverCreate(DriverObject,
-                            RegistryPath,
-                            &attributes,
-                            &config,
-                            &hDriver);
+        RegistryPath,
+        &attributes,
+        &config,
+        &hDriver);
     if (!NT_SUCCESS(status)) {
-        KdPrint (("NonPnp: WdfDriverCreate failed with status 0x%x\n", status));
+        KdPrint(("NonPnp: WdfDriverCreate failed with status 0x%x\n", status));
         return status;
     }
 
-    status = PsSetCreateProcessNotifyRoutineEx(ProcessCreationCallback, FALSE);
-    KdPrint(("Status for CreateProcessNotifyRoutineEx is %d : %x\n", status, status));
-
-    for (i = 0; i < IRP_MJ_MAXIMUM_FUNCTION; i++)
-    {
-        DriverObject->MajorFunction[i] = DispatchIRPs;
-    }
-
-    DriverObject->DriverUnload = FltUnload;
-
-    pDriverObject = DriverObject;
-
-    status = FltRegisterFilter(DriverObject, &FilterRegistration, &pFilter);
-
-    //
-    // On Win2K system,  you will experience some delay in getting trace events
-    // due to the way the ETW is activated to accept trace messages.
-    //
-    KdPrint(("NonPnp: DriverEntry: tracing enabled\n"));
-
-    KdPrint(("Driver Frameworks NONPNP Legacy Driver Example"));
-
-    //
-    //
-    // In order to create a control device, we first need to allocate a
-    // WDFDEVICE_INIT structure and set all properties.
-    //
     pInit = WdfControlDeviceInitAllocate(
-                            hDriver,
-                            &SDDL_DEVOBJ_SYS_ALL_ADM_RWX_WORLD_RW_RES_R
-                            );
+        hDriver,
+        &SDDL_DEVOBJ_SYS_ALL_ADM_RWX_WORLD_RW_RES_R
+        );
 
     if (pInit == NULL) {
         status = STATUS_INSUFFICIENT_RESOURCES;
@@ -336,8 +288,116 @@ Return Value:
     // software device.
     //
     status = NonPnpDeviceAdd(hDriver, pInit);
+
+    return status;
+}
+
+NTSTATUS 
+StartProcessMonitoring(
+    IN OUT PDRIVER_OBJECT   DriverObject,
+    IN PUNICODE_STRING      RegistryPath)
+{
+    UNREFERENCED_PARAMETER(DriverObject);
+    UNREFERENCED_PARAMETER(RegistryPath);
+
+    NTSTATUS status;
+    status = PsSetCreateProcessNotifyRoutineEx(ProcessCreationCallback, FALSE);
+    KdPrint(("Status for CreateProcessNotifyRoutineEx is %d : %x\n", status, status));
+
+    return status;
+}
+
+NTSTATUS
+StartRegistryMonitoring(
+IN OUT PDRIVER_OBJECT   DriverObject,
+IN PUNICODE_STRING      RegistryPath)
+{
+    UNREFERENCED_PARAMETER(DriverObject);
+    UNREFERENCED_PARAMETER(RegistryPath);
+
+    return STATUS_SUCCESS;
+}
+
+NTSTATUS
+StartFileMonitoring(
+IN OUT PDRIVER_OBJECT   DriverObject,
+IN PUNICODE_STRING      RegistryPath)
+{
+    UNREFERENCED_PARAMETER(RegistryPath);
+
+    INT i;
+    NTSTATUS status;
+
+    for (i = 0; i < IRP_MJ_MAXIMUM_FUNCTION; i++)
+    {
+        DriverObject->MajorFunction[i] = DispatchIRPs;
+    }
+
+    DriverObject->DriverUnload = FltUnload;
+
+    pDriverObject = DriverObject;
+
+    status = FltRegisterFilter(DriverObject, &FilterRegistration, &pFilter);
+    KdPrint(("Status for FltRegisterFilter is %x : %x\n", pFilter, status));
+    if (pFilter)
+        status = FltStartFiltering(pFilter);
+    KdPrint(("Status for FltStartFiltering is %d : %x\n", status, status));
+    return STATUS_SUCCESS;
+}
+
+NTSTATUS
+StartNetworkMonitoring(
+IN OUT PDRIVER_OBJECT   DriverObject,
+IN PUNICODE_STRING      RegistryPath)
+{
+    UNREFERENCED_PARAMETER(DriverObject);
+    UNREFERENCED_PARAMETER(RegistryPath);
+
+    return STATUS_SUCCESS;
+}
+
+NTSTATUS
+DriverEntry(
+    IN OUT PDRIVER_OBJECT   DriverObject,
+    IN PUNICODE_STRING      RegistryPath
+    )
+/*++
+
+Routine Description:
+    This routine is called by the Operating System to initialize the driver.
+
+    It creates the device object, fills in the dispatch entry points and
+    completes the initialization.
+
+Arguments:
+    DriverObject - a pointer to the object that represents this device
+    driver.
+
+    RegistryPath - a pointer to our Services key in the registry.
+
+Return Value:
+    STATUS_SUCCESS if initialized; an error otherwise.
+
+--*/
+{
     
-    
+    NTSTATUS status = STATUS_SUCCESS;
+    __asm int 3;
+
+    if (!NT_SUCCESS(status = StartCommonService(DriverObject, RegistryPath)))
+        return status;
+
+    if (!NT_SUCCESS(status = StartProcessMonitoring(DriverObject, RegistryPath)))
+        return status;
+   
+    if (!NT_SUCCESS(status = StartRegistryMonitoring(DriverObject, RegistryPath)))
+        return status;
+
+    //if (!NT_SUCCESS(status = StartFileMonitoring(DriverObject, RegistryPath)))
+    //    return status;
+
+    if (!NT_SUCCESS(status = StartNetworkMonitoring(DriverObject, RegistryPath)))
+        return status;
 
     return status;
 }
