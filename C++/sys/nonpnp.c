@@ -49,6 +49,7 @@ PH_MARK_PROCESS g_ProcessTable = NULL;
 
 PDRIVER_OBJECT pDriverObject;
 PFLT_FILTER pFilter;
+LARGE_INTEGER RegCookie;
 
 void* malloc(SIZE_T x)
 {
@@ -147,7 +148,7 @@ _Out_ PVOID *CompletionContext
         if (FileObject != NULL && Data->Iopb->MajorFunction == IRP_MJ_CREATE)
         {
 //            status = GetProcessImageName(&processName);
-            KdPrint(("Process: %ws", FileObject->FileName.Buffer));
+            KdPrint(("FILE OPERATION Process: %ws\n", FileObject->FileName.Buffer));
                
         }
     }
@@ -307,6 +308,23 @@ StartProcessMonitoring(
     return status;
 }
 
+NTSTATUS RegCallback(
+    _In_      PVOID CallbackContext,
+    _In_opt_  PVOID Argument1,
+    _In_opt_  PVOID Argument2
+    )
+{
+#if 1
+    UNREFERENCED_PARAMETER(CallbackContext);
+    UNREFERENCED_PARAMETER(Argument1);
+    UNREFERENCED_PARAMETER(Argument2);
+#else
+    KdPrint(("RegCallback called for %x : %x : %x\n", CallbackContext, Argument1, Argument2));
+#endif
+    return STATUS_SUCCESS;
+}
+
+
 NTSTATUS
 StartRegistryMonitoring(
 IN OUT PDRIVER_OBJECT   DriverObject,
@@ -314,6 +332,13 @@ IN PUNICODE_STRING      RegistryPath)
 {
     UNREFERENCED_PARAMETER(DriverObject);
     UNREFERENCED_PARAMETER(RegistryPath);
+
+    NTSTATUS status;
+
+    DECLARE_CONST_UNICODE_STRING(szAltitude, L"268400");
+
+    status = CmRegisterCallbackEx(RegCallback, &szAltitude, &DriverObject, NULL, &RegCookie, NULL);
+    KdPrint(("Status for CreateProcessNotifyRoutineEx is %d : %x\n", status, status));
 
     return STATUS_SUCCESS;
 }
@@ -393,8 +418,8 @@ Return Value:
     if (!NT_SUCCESS(status = StartRegistryMonitoring(DriverObject, RegistryPath)))
         return status;
 
-    //if (!NT_SUCCESS(status = StartFileMonitoring(DriverObject, RegistryPath)))
-    //    return status;
+    if (!NT_SUCCESS(status = StartFileMonitoring(DriverObject, RegistryPath)))
+        return status;
 
     if (!NT_SUCCESS(status = StartNetworkMonitoring(DriverObject, RegistryPath)))
         return status;
@@ -1490,9 +1515,10 @@ Return Value:
 
     PAGED_CODE();
 
-    PsSetCreateProcessNotifyRoutineEx(ProcessCreationCallback, TRUE);
+    KdPrint(("Entered NonPnpDriverUnload\n"));
 
-    KdPrint(( "Entered NonPnpDriverUnload\n"));
+    PsSetCreateProcessNotifyRoutineEx(ProcessCreationCallback, TRUE);
+    CmUnRegisterCallback(RegCookie);
 
     return;
 }
