@@ -483,7 +483,11 @@
     <None Exclude="@(None)" Include="*.def;*.bat;*.hpj;*.asmx" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Exclude="@(ClInclude)" Include="*.h;*.hpp;*.hxx;*.hm;*.inl;*.xsd" />
+    <ClInclude Include="core.h" />
+    <ClInclude Include="nonpnp.h" />
+    <ClInclude Include="processtable.h" />
+    <ClInclude Include="public.h" />
+    <ClInclude Include="trace.h" />
     <ClInclude Include="processtable.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

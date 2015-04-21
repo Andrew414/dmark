@@ -3,6 +3,6 @@
 
 #include "core.h"
 
-PMARK_PROCESS FindOrLoadProcess(int pid);
+PMARK_PROCESS FindLoadProcess(int pid);
 
 #endif
