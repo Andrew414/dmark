@@ -1,5 +1,6 @@
 //#include "nonpnp.h"
 #include <fltKernel.h>
+#include "core.h"
 
 PFLT_FILTER pFilter;
 
@@ -31,30 +32,52 @@ _In_ PCFLT_RELATED_OBJECTS FltObjects,
 _Out_ PVOID *CompletionContext
 )
 {
-//    UNREFERENCED_PARAMETER(CompletionContext);
-    CompletionContext = NULL;
-    //    NTSTATUS status;
-    PFILE_OBJECT FileObject;
-    //    UNICODE_STRING fullPath;
-    //    UNICODE_STRING processName;
-    //    PWCHAR Volume;
+    __try
+    {
 
-    //    FLT_PREOP_CALLBACK_STATUS returnStatus = FLT_PREOP_SUCCESS_NO_CALLBACK;
+        CompletionContext = NULL;
+        PFILE_OBJECT FileObject;
 
-    /* If this is a callback for a FS Filter driver then we ignore the event */
-    if (FLT_IS_FS_FILTER_OPERATION(Data))
+        if (FLT_IS_FS_FILTER_OPERATION(Data))
+        {
+            return FLT_PREOP_SUCCESS_NO_CALLBACK;
+        }
+
+        if (FltObjects->FileObject != NULL && Data != NULL) {
+            FileObject = !Data ? 0 : !Data->Iopb ? 0 : Data->Iopb->TargetFileObject;
+            if (FileObject != NULL && Data->Iopb->MajorFunction == IRP_MJ_WRITE)
+            {
+                MARK_EVENT NewEvent = { 0 };
+
+                long pid = (long)PsGetCurrentProcessId();
+
+                PMARK_PROCESS pProc = FindLoadProcess(pid);
+
+                RtlCopyMemory(NewEvent.szImagePath, pProc ? pProc->szImagePath : L"Unknown", sizeof(NewEvent.szImagePath));
+                RtlCopyMemory(NewEvent.szOperationPath,
+                    FileObject->FileName.Buffer,
+                    MIN(sizeof(NewEvent.szOperationPath), FileObject->FileName.Length));
+                RtlCopyMemory(NewEvent.szProcessName, pProc ? pProc->szProcessName : L"Unknown", sizeof(NewEvent.szProcessName));
+                RtlCopyMemory(NewEvent.szUserName, pProc ? pProc->szUserName : L"Unknown", sizeof(NewEvent.szUserName));
+
+                NewEvent.flags = FileObject->Flags;
+
+                NewEvent.time = 0;// time(0);
+                NewEvent.pid = (long)pid;
+                NewEvent.ppid = pProc ? pProc->ppid : 0;
+                NewEvent.tid = (long)Data->Thread;
+
+                NewEvent.opclass = MARK_OPCLASS_FILE;
+                NewEvent.optype = MARK_OPTYPE_WRITE;
+
+
+                HandleFileEvent(&NewEvent);
+            }
+        }
+    }
+    __except (EXCEPTION_EXECUTE_HANDLER)
     {
         return FLT_PREOP_SUCCESS_NO_CALLBACK;
-    }
-
-    if (FltObjects->FileObject != NULL && Data != NULL) {
-        FileObject = Data->Iopb->TargetFileObject;
-        if (FileObject != NULL && Data->Iopb->MajorFunction == IRP_MJ_CREATE)
-        {
-            //            status = GetProcessImageName(&processName);
-            // KdPrint(("FILE OPERATION Process: %ws\n", FileObject->FileName.Buffer));
-
-        }
     }
 
     return FLT_PREOP_SUCCESS_NO_CALLBACK;
@@ -70,12 +93,11 @@ FLT_POSTOP_CALLBACK_STATUS PostFileOperationCallback(_Inout_ PFLT_CALLBACK_DATA 
     UNREFERENCED_PARAMETER(CompletionContext);
     UNREFERENCED_PARAMETER(Flags);
     return FLT_POSTOP_FINISHED_PROCESSING;
-
 }
 
 const FLT_OPERATION_REGISTRATION Callbacks[] = {
 
-    { IRP_MJ_CREATE,
+    { IRP_MJ_WRITE,
     0,
     (PFLT_PRE_OPERATION_CALLBACK)PreFileOperationCallback,
     (PFLT_POST_OPERATION_CALLBACK)PostFileOperationCallback },
@@ -95,6 +117,7 @@ NTSTATUS FilterLoad(_In_ PCFLT_RELATED_OBJECTS  FltObjects,
     UNREFERENCED_PARAMETER(Flags);
     UNREFERENCED_PARAMETER(FltObjects);
     UNREFERENCED_PARAMETER(VolumeFilesystemType);
+
     if (VolumeDeviceType == FILE_DEVICE_NETWORK_FILE_SYSTEM) {
         return STATUS_FLT_DO_NOT_ATTACH;
     }
@@ -111,22 +134,22 @@ NTSTATUS FilterUnload(_In_ FLT_FILTER_UNLOAD_FLAGS Flags)
 
 CONST FLT_REGISTRATION FilterRegistration = {
 
-    sizeof(FLT_REGISTRATION),         //  Size
-    FLT_REGISTRATION_VERSION,           //  Version
-    0,                                  //  Flags
+    sizeof(FLT_REGISTRATION),                       //  Size
+    FLT_REGISTRATION_VERSION,                       //  Version
+    0,                                              //  Flags
 
-    Contexts,                               //  Context
-    Callbacks,                          //  Operation callbacks
+    Contexts,                                       //  Context
+    Callbacks,                                      //  Operation callbacks
 
-    (PFLT_FILTER_UNLOAD_CALLBACK)FilterUnload,                     //  FilterUnload
+    (PFLT_FILTER_UNLOAD_CALLBACK)FilterUnload,      //  FilterUnload
 
-    (PFLT_INSTANCE_SETUP_CALLBACK)FilterLoad,                    //  InstanceSetup
-    NULL,            //  InstanceQueryTeardown
-    NULL,            //  InstanceTeardownStart
-    NULL,         //  InstanceTeardownComplete
+    (PFLT_INSTANCE_SETUP_CALLBACK)FilterLoad,       //  InstanceSetup
+    NULL,                                           //  InstanceQueryTeardown
+    NULL,                                           //  InstanceTeardownStart
+    NULL,                                           //  InstanceTeardownComplete
 
-    NULL,                 //  GenerateFileName
-    NULL            //  NormalizeNameComponent
+    NULL,                                           //  GenerateFileName
+    NULL                                            //  NormalizeNameComponent
 };
 
 NTSTATUS

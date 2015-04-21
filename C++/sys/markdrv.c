@@ -1,4 +1,4 @@
-#include "nonpnp.h"
+#include "markdrv.h"
 #include "core.h"
 
 NTSTATUS 
@@ -45,6 +45,7 @@ DriverEntry(
 
 int SendEvent(PMARK_EVENT evt)
 {
+#if 1
     KdPrint(("%x: PID:%6x, PPID:%6x, TID:%6x, OPERATION=%s.%s, FLAGS=%8x, USERNAME=%S, PATH=%S, IMAGE=%S, PROCESS=%S\n", 
         evt->time,
         evt->pid,
@@ -60,6 +61,9 @@ int SendEvent(PMARK_EVENT evt)
         evt->szImagePath,
         evt->szProcessName
         ));
+#else
+    UNREFERENCED_PARAMETER(evt);
+#endif
     return 0;
 }
 

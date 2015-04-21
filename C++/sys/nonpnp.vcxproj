@@ -188,7 +188,7 @@
     <ClCompile Include="core.c" />
     <ClCompile Include="file.c" />
     <ClCompile Include="network.c" />
-    <ClCompile Include="nonpnp.c">
+    <ClCompile Include="markdrv.c">
       <WppEnabled>true</WppEnabled>
       <WppKernelMode>true</WppKernelMode>
       <WppTraceFunction>TraceEvents(LEVEL,FLAGS,MSG,...);Hexdump((LEVEL,FLAGS,MSG,...))</WppTraceFunction>
@@ -484,7 +484,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="core.h" />
-    <ClInclude Include="nonpnp.h" />
+    <ClInclude Include="markdrv.h" />
     <ClInclude Include="processtable.h" />
     <ClInclude Include="public.h" />
     <ClInclude Include="trace.h" />
