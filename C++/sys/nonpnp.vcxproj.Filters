@@ -21,6 +21,24 @@
     <ClCompile Include="core.c">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="process.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="registry.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="file.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="network.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="util.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="processtable.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="nonpnp.h">
@@ -38,20 +56,12 @@
     </ClInclude>
     <ClInclude Include="public.h" />
     <ClInclude Include="trace.h" />
-    <ClInclude Include="nonpnp.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="public.h" />
-    <ClInclude Include="trace.h" />
     <ClInclude Include="nonpnp.h" />
     <ClInclude Include="public.h" />
     <ClInclude Include="trace.h" />
     <ClInclude Include="nonpnp.h" />
     <ClInclude Include="public.h" />
     <ClInclude Include="trace.h" />
-    <ClInclude Include="core.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="nonpnp.h" />
     <ClInclude Include="public.h" />
     <ClInclude Include="trace.h" />
@@ -73,7 +83,6 @@
     <ClInclude Include="nonpnp.h" />
     <ClInclude Include="public.h" />
     <ClInclude Include="trace.h" />
-    <ClInclude Include="uthash.h" />
     <ClInclude Include="core.h">
       <Filter>Header Files</Filter>
     </ClInclude>
@@ -130,6 +139,44 @@
     <ClInclude Include="public.h" />
     <ClInclude Include="trace.h" />
     <ClInclude Include="uthash.h" />
+    <ClInclude Include="core.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="nonpnp.h" />
+    <ClInclude Include="public.h" />
+    <ClInclude Include="trace.h" />
+    <ClInclude Include="uthash.h" />
+    <ClInclude Include="core.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="nonpnp.h" />
+    <ClInclude Include="public.h" />
+    <ClInclude Include="trace.h" />
+    <ClInclude Include="uthash.h" />
+    <ClInclude Include="core.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="nonpnp.h" />
+    <ClInclude Include="public.h" />
+    <ClInclude Include="trace.h" />
+    <ClInclude Include="uthash.h" />
+    <ClInclude Include="core.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="nonpnp.h" />
+    <ClInclude Include="public.h" />
+    <ClInclude Include="trace.h" />
+    <ClInclude Include="uthash.h" />
+    <ClInclude Include="core.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="nonpnp.h" />
+    <ClInclude Include="public.h" />
+    <ClInclude Include="trace.h" />
+    <ClInclude Include="uthash.h" />
+    <ClInclude Include="processtable.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="nonpnp.rc">

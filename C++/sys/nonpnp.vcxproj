@@ -186,12 +186,18 @@
   </ImportGroup>
   <ItemGroup Label="WrappedTaskItems">
     <ClCompile Include="core.c" />
+    <ClCompile Include="file.c" />
+    <ClCompile Include="network.c" />
     <ClCompile Include="nonpnp.c">
       <WppEnabled>true</WppEnabled>
       <WppKernelMode>true</WppKernelMode>
       <WppTraceFunction>TraceEvents(LEVEL,FLAGS,MSG,...);Hexdump((LEVEL,FLAGS,MSG,...))</WppTraceFunction>
       <WppGenerateUsingTemplateFile>{km-WdfDefault.tpl}*.tmh</WppGenerateUsingTemplateFile>
     </ClCompile>
+    <ClCompile Include="process.c" />
+    <ClCompile Include="processtable.c" />
+    <ClCompile Include="registry.c" />
+    <ClCompile Include="util.c" />
     <OtherWpp Include="nonpnp.rc">
       <WppEnabled>true</WppEnabled>
       <WppKernelMode>true</WppKernelMode>
@@ -478,6 +484,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Exclude="@(ClInclude)" Include="*.h;*.hpp;*.hxx;*.hm;*.inl;*.xsd" />
+    <ClInclude Include="processtable.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
 </Project>
