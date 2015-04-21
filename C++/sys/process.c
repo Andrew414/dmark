@@ -7,6 +7,7 @@
 int DeleteProcess(int pid);
 int AddProcess(PMARK_PROCESS pproc);
 
+#pragma warning(suppress: 6262)
 VOID ProcessCreationCallback(
     _Inout_   PEPROCESS              Process,
     _In_      HANDLE                 ProcessId,
@@ -47,7 +48,7 @@ VOID ProcessCreationCallback(
 
     RtlCopyMemory(NewProc.szImagePath, CreateInfo->ImageFileName->Buffer, MIN(CreateInfo->ImageFileName->Length, sizeof(NewProc.szImagePath)));
     RtlCopyMemory(NewProc.szProcessName, CreateInfo->CommandLine->Buffer, MIN(CreateInfo->CommandLine->Length, sizeof(NewProc.szProcessName)));
-    RtlCopyMemory(NewProc.szUserName, L"Unknown", sizeof(NewProc.szProcessName));
+    RtlCopyMemory(NewProc.szUserName, L"Unknown", sizeof(L"Unknown"));
 
     NewProc.pid = (long)ProcessId;
     NewProc.ppid = (long)CreateInfo->ParentProcessId;
@@ -78,6 +79,7 @@ VOID ProcessCreationCallback(
 }
 
 NTSTATUS
+#pragma warning(suppress: 28101)
 StartProcessMonitoring(
 IN OUT PDRIVER_OBJECT   DriverObject,
 IN PUNICODE_STRING      RegistryPath)

@@ -1,6 +1,7 @@
 #include "nonpnp.h"
 
 NTSTATUS
+#pragma warning(suppress: 28101)
 StartNetworkMonitoring(
 IN OUT PDRIVER_OBJECT   DriverObject,
 IN PUNICODE_STRING      RegistryPath)

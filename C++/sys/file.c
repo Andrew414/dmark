@@ -9,6 +9,7 @@ VOID FltUnload()
         FltUnregisterFilter(pFilter);
 }
 
+//_Dispatch_type_CreateClose
 NTSTATUS
 DispatchIRPs(
 _In_ PDEVICE_OBJECT DeviceObject,
@@ -30,7 +31,8 @@ _In_ PCFLT_RELATED_OBJECTS FltObjects,
 _Out_ PVOID *CompletionContext
 )
 {
-    UNREFERENCED_PARAMETER(CompletionContext);
+//    UNREFERENCED_PARAMETER(CompletionContext);
+    CompletionContext = NULL;
     //    NTSTATUS status;
     PFILE_OBJECT FileObject;
     //    UNICODE_STRING fullPath;
@@ -128,6 +130,7 @@ CONST FLT_REGISTRATION FilterRegistration = {
 };
 
 NTSTATUS
+#pragma warning(suppress: 28101)
 StartFileMonitoring(
 IN OUT PDRIVER_OBJECT   DriverObject,
 IN PUNICODE_STRING      RegistryPath)
@@ -143,7 +146,7 @@ IN PUNICODE_STRING      RegistryPath)
     }
 
     status = FltRegisterFilter(DriverObject, &FilterRegistration, &pFilter);
-    KdPrint(("Status for FltRegisterFilter is %x : %x\n", pFilter, status));
+    KdPrint(("Status for FltRegisterFilter is %p : %x\n", pFilter, status));
     if (pFilter)
         status = FltStartFiltering(pFilter);
     KdPrint(("Status for FltStartFiltering is %d : %x\n", status, status));

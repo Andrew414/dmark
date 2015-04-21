@@ -2,6 +2,7 @@
 #include "core.h"
 
 NTSTATUS 
+#pragma warning(suppress: 28101)
 StartCommonService(
     IN OUT PDRIVER_OBJECT   DriverObject,
     IN PUNICODE_STRING      RegistryPath

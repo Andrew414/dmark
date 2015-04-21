@@ -27,17 +27,21 @@ int LoadProcess(int pid)
 {
     MARK_PROCESS Proc = { 0 };
     PEPROCESS wProc = { 0 };
+    NTSTATUS status = 0;
 
     PUNICODE_STRING procName = { 0 };
 
     Proc.pid = pid;
     Proc.ppid = 0;
 
-    PsLookupProcessByProcessId((HANDLE)pid, &wProc);
+    status = PsLookupProcessByProcessId((HANDLE)pid, &wProc);
     
-    SeLocateProcessImageName(wProc, &procName);
+    if (NT_SUCCESS(status))
+    {
+        status = SeLocateProcessImageName(wProc, &procName);
+    }
 
-    MarkCopyMemory(Proc.szImagePath, procName->Buffer, sizeof(Proc.szImagePath));
+    MarkCopyMemory(Proc.szImagePath, NT_SUCCESS(status) ? procName->Buffer : L"Unknown", sizeof(Proc.szImagePath));
     MarkCopyMemory(Proc.szUserName, L"Unknown", sizeof(Proc.szUserName));
     MarkCopyMemory(Proc.szProcessName, L"Unknown", sizeof(Proc.szProcessName));
 
