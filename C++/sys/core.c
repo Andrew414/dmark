@@ -27,7 +27,8 @@ int HandlePacketEvent(PMARK_EVENT evt)
 
 int HandleRegistryEvent(PMARK_EVENT evt)
 {
-    return SendEvent(evt);
+    
+    return 0; evt;// SendEvent(evt);
 }
 
 int HandleFileEvent(PMARK_EVENT evt)

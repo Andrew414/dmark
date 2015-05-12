@@ -169,10 +169,10 @@ IN PUNICODE_STRING      RegistryPath)
     }
 
     status = FltRegisterFilter(DriverObject, &FilterRegistration, &pFilter);
-    KdPrint(("Status for FltRegisterFilter is %p : %x\n", pFilter, status));
+    KdPrintEx((DPFLTR_DEFAULT_ID, DPFLTR_ERROR_LEVEL, "Status for FltRegisterFilter is %p : %x\n", pFilter, status));
     if (pFilter)
         status = FltStartFiltering(pFilter);
-    KdPrint(("Status for FltStartFiltering is %d : %x\n", status, status));
+    KdPrintEx((DPFLTR_DEFAULT_ID, DPFLTR_ERROR_LEVEL, "Status for FltStartFiltering is %d : %x\n", status, status));
     return STATUS_SUCCESS;
 }
 

@@ -45,8 +45,10 @@ DriverEntry(
 
 int SendEvent(PMARK_EVENT evt)
 {
+    //TODO: Send event to usermode.
+
 #if 1
-    KdPrint(("%x: PID:%6x, PPID:%6x, TID:%6x, OPERATION=%s.%s, FLAGS=%8x, USERNAME=%S, PATH=%S, IMAGE=%S, PROCESS=%S\n", 
+    KdPrintEx((DPFLTR_DEFAULT_ID, DPFLTR_ERROR_LEVEL, "%x: PID:%6x, PPID:%6x, TID:%6x, OPERATION=%s.%s, FLAGS=%8x, USERNAME=%S, PATH=%S, IMAGE=%S, PROCESS=%S\n", 
         evt->time,
         evt->pid,
         evt->ppid,
@@ -71,7 +73,7 @@ VOID
 StopService(IN PDRIVER_OBJECT DriverObject)
 {
     UNREFERENCED_PARAMETER(DriverObject);
-    KdPrint(("Entered StopService\n"));
+    KdPrintEx((DPFLTR_DEFAULT_ID, DPFLTR_ERROR_LEVEL, "Entered StopService\n"));
 
     StopFileMonitoring();
     StopRegistryMonitoring();

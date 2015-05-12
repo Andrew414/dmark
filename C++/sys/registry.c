@@ -185,7 +185,7 @@ NTSTATUS RegCallback(
 #if 1
     UNREFERENCED_PARAMETER(CallbackContext);
 #else
-    KdPrint(("RegCallback called for %x : %x : %x\n", CallbackContext, Argument1, Argument2));
+    KdPrintEx((DPFLTR_DEFAULT_ID, DPFLTR_ERROR_LEVEL, "RegCallback called for %x : %x : %x\n", CallbackContext, Argument1, Argument2));
 #endif
 
     if (!Argument2)
@@ -240,7 +240,7 @@ IN PUNICODE_STRING      RegistryPath)
     DECLARE_CONST_UNICODE_STRING(szAltitude, L"268400");
 
     status = CmRegisterCallbackEx(RegCallback, &szAltitude, &DriverObject, NULL, &RegCookie, NULL);
-    KdPrint(("Status for CmRegisterCallbackEx is %d : %x\n", status, status));
+    KdPrintEx((DPFLTR_DEFAULT_ID, DPFLTR_ERROR_LEVEL, "Status for CmRegisterCallbackEx is %d : %x\n", status, status));
 
     return status;
 }
@@ -250,6 +250,6 @@ StopRegistryMonitoring()
 {
     NTSTATUS status;
     status = CmUnRegisterCallback(RegCookie);
-    KdPrint(("Status for CmUnRegisterCallback is %d : %x\n", status, status));
+    KdPrintEx((DPFLTR_DEFAULT_ID, DPFLTR_ERROR_LEVEL, "Status for CmUnRegisterCallback is %d : %x\n", status, status));
     return STATUS_SUCCESS;
 }

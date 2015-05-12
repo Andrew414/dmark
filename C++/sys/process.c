@@ -22,7 +22,7 @@ VOID ProcessCreationCallback(
     if (!CreateInfo)
     {
 #if 0
-        KdPrint(("Process %d (%x) finished\n", ProcessId, ProcessId));
+        KdPrintEx((DPFLTR_DEFAULT_ID, DPFLTR_ERROR_LEVEL, "Process %d (%x) finished\n", ProcessId, ProcessId));
 #endif
         PMARK_PROCESS pProc = FindLoadProcess((int)ProcessId);
 
@@ -56,9 +56,9 @@ VOID ProcessCreationCallback(
     AddProcess(&NewProc);
 
 #if 0
-    KdPrint(("Process %d (%x) \"", ProcessId, PidCopy));
+    KdPrintEx((DPFLTR_DEFAULT_ID, DPFLTR_ERROR_LEVEL, "Process %d (%x) \"", ProcessId, PidCopy));
     PrintCUnicodeString(CreateInfo->ImageFileName);
-    KdPrint(("\" started by PID %d\n", CreateInfo->ParentProcessId));
+    KdPrintEx((DPFLTR_DEFAULT_ID, DPFLTR_ERROR_LEVEL, "\" started by PID %d\n", CreateInfo->ParentProcessId));
 #endif
 
     RtlCopyMemory(NewEvent.szImagePath, NewProc.szImagePath, sizeof(NewEvent.szImagePath));
@@ -89,7 +89,7 @@ IN PUNICODE_STRING      RegistryPath)
 
     NTSTATUS status;
     status = PsSetCreateProcessNotifyRoutineEx(ProcessCreationCallback, FALSE);
-    KdPrint(("Status for CreateProcessNotifyRoutineEx is %d : %x\n", status, status));
+    KdPrintEx((DPFLTR_DEFAULT_ID, DPFLTR_ERROR_LEVEL, "Status for CreateProcessNotifyRoutineEx is %d : %x\n", status, status));
 
     return status;
 }
@@ -99,6 +99,6 @@ StopProcessMonitoring()
 {
     NTSTATUS status;
     status = PsSetCreateProcessNotifyRoutineEx(ProcessCreationCallback, TRUE);
-    KdPrint(("Status for CreateProcessNotifyRoutineEx(T) is %d : %x\n", status, status));
+    KdPrintEx((DPFLTR_DEFAULT_ID, DPFLTR_ERROR_LEVEL, "Status for CreateProcessNotifyRoutineEx(T) is %d : %x\n", status, status));
     return STATUS_SUCCESS;
 }

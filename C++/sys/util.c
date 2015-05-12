@@ -56,7 +56,7 @@ VOID PrintCUnicodeString(PCUNICODE_STRING str)
     unsigned int i = 0;
     for (; *c && i <= str->Length; c++, i += 2)
     {
-        KdPrint(("%C", *c));
+        KdPrintEx((DPFLTR_DEFAULT_ID, DPFLTR_ERROR_LEVEL, "%C", *c));
     }
 }
 
@@ -73,17 +73,17 @@ _In_ size_t CountChars
             if (*BufferAddress > 31
                 && *BufferAddress != 127) {
 
-                KdPrint(("%c", *BufferAddress));
+                KdPrintEx((DPFLTR_DEFAULT_ID, DPFLTR_ERROR_LEVEL, "%c", *BufferAddress));
 
             }
             else {
 
-                KdPrint(("."));
+                KdPrintEx((DPFLTR_DEFAULT_ID, DPFLTR_ERROR_LEVEL, "."));
 
             }
             BufferAddress++;
         }
-        KdPrint(("\n"));
+        KdPrintEx((DPFLTR_DEFAULT_ID, DPFLTR_ERROR_LEVEL, "\n"));
     }
     return;
 }
