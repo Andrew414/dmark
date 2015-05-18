@@ -39,13 +39,13 @@
     <ClCompile Include="markdrv.c">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="usermodeconnection.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="public.h" />
     <ClInclude Include="trace.h" />
-    <ClInclude Include="nonpnp.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="public.h" />
     <ClInclude Include="trace.h" />
     <ClInclude Include="nonpnp.h">
@@ -92,7 +92,6 @@
     <ClInclude Include="nonpnp.h" />
     <ClInclude Include="public.h" />
     <ClInclude Include="trace.h" />
-    <ClInclude Include="uthash.h" />
     <ClInclude Include="core.h">
       <Filter>Header Files</Filter>
     </ClInclude>
@@ -168,6 +167,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="markdrv.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="markusermode.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

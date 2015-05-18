@@ -196,6 +196,7 @@
     <ClCompile Include="process.c" />
     <ClCompile Include="processtable.c" />
     <ClCompile Include="registry.c" />
+    <ClCompile Include="usermodeconnection.c" />
     <ClCompile Include="util.c" />
   </ItemGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Win7 Release|x64'">
@@ -483,6 +484,7 @@
   <ItemGroup>
     <ClInclude Include="core.h" />
     <ClInclude Include="markdrv.h" />
+    <ClInclude Include="markusermode.h" />
     <ClInclude Include="processtable.h" />
     <ClInclude Include="public.h" />
     <ClInclude Include="trace.h" />

@@ -1,6 +1,8 @@
 #include "markdrv.h"
 #include "core.h"
 
+#include "markusermode.h"
+
 NTSTATUS 
 #pragma warning(suppress: 28101)
 StartCommonService(
@@ -40,12 +42,15 @@ DriverEntry(
     if (!NT_SUCCESS(status = StartNetworkMonitoring(DriverObject, RegistryPath)))
         return status;
 
+    if (!NT_SUCCESS(status = StartConnection(DriverObject, RegistryPath)))
+        return status;
+
     return status;
 }
 
 int SendEvent(PMARK_EVENT evt)
 {
-    //TODO: Send event to usermode.
+    SendToUserMode(evt);
 
 #if 1
     KdPrintEx((DPFLTR_DEFAULT_ID, DPFLTR_ERROR_LEVEL, "%x: PID:%6x, PPID:%6x, TID:%6x, OPERATION=%s.%s, FLAGS=%8x, USERNAME=%S, PATH=%S, IMAGE=%S, PROCESS=%S\n", 
@@ -75,6 +80,7 @@ StopService(IN PDRIVER_OBJECT DriverObject)
     UNREFERENCED_PARAMETER(DriverObject);
     KdPrintEx((DPFLTR_DEFAULT_ID, DPFLTR_ERROR_LEVEL, "Entered StopService\n"));
 
+    StopConnection();
     StopFileMonitoring();
     StopRegistryMonitoring();
     StopNetworkMonitoring();

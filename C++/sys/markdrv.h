@@ -37,6 +37,11 @@ IN OUT PDRIVER_OBJECT   DriverObject,
 IN PUNICODE_STRING      RegistryPath);
 
 NTSTATUS
+StartConnection(
+IN OUT PDRIVER_OBJECT   DriverObject,
+IN PUNICODE_STRING      RegistryPath);
+
+NTSTATUS
 StopRegistryMonitoring();
 
 NTSTATUS
@@ -47,5 +52,8 @@ StopNetworkMonitoring();
 
 NTSTATUS
 StopFileMonitoring();
+
+NTSTATUS
+StopConnection();
 
 #endif
