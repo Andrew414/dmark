@@ -19,6 +19,16 @@ namespace eventz
                 InitializeComponent();
             }
             catch (Exception e) { }
+
+
+            var reader = new System.IO.StreamReader(@"C:\Users\andre_000\Desktop\LogFile.CSV");
+            string line;
+            while (!String.IsNullOrWhiteSpace(line = reader.ReadLine()))
+            {
+                string[] str = line.Split(new char[] { ',' });
+                betterListView1.Items.Add(new string[] { str[0], str[1], str[2], str[3], str[4]});
+            }
+            
         }
 
         private void fileToolStripMenuItem_Click(object sender, EventArgs e)

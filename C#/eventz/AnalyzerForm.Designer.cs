@@ -53,6 +53,11 @@
             this.betterListViewGroup3 = new ComponentOwl.BetterListView.BetterListViewGroup();
             this.betterListViewGroup4 = new ComponentOwl.BetterListView.BetterListViewGroup();
             this.splitter1 = new System.Windows.Forms.Splitter();
+            this.betterListViewColumnHeader1 = new ComponentOwl.BetterListView.BetterListViewColumnHeader();
+            this.betterListViewColumnHeader2 = new ComponentOwl.BetterListView.BetterListViewColumnHeader();
+            this.betterListViewColumnHeader3 = new ComponentOwl.BetterListView.BetterListViewColumnHeader();
+            this.betterListViewColumnHeader4 = new ComponentOwl.BetterListView.BetterListViewColumnHeader();
+            this.betterListViewColumnHeader5 = new ComponentOwl.BetterListView.BetterListViewColumnHeader();
             betterListViewItem1 = new ComponentOwl.BetterListView.BetterListViewItem();
             this.menuStrip1.SuspendLayout();
             this.toolStrip1.SuspendLayout();
@@ -215,6 +220,11 @@
             // 
             // betterListView1
             // 
+            this.betterListView1.Columns.Add(this.betterListViewColumnHeader1);
+            this.betterListView1.Columns.Add(this.betterListViewColumnHeader2);
+            this.betterListView1.Columns.Add(this.betterListViewColumnHeader3);
+            this.betterListView1.Columns.Add(this.betterListViewColumnHeader4);
+            this.betterListView1.Columns.Add(this.betterListViewColumnHeader5);
             this.betterListView1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.betterListView1.Location = new System.Drawing.Point(3, 16);
             this.betterListView1.Name = "betterListView1";
@@ -288,6 +298,31 @@
             this.splitter1.TabIndex = 5;
             this.splitter1.TabStop = false;
             // 
+            // betterListViewColumnHeader1
+            // 
+            this.betterListViewColumnHeader1.Name = "betterListViewColumnHeader1";
+            this.betterListViewColumnHeader1.Text = "Time";
+            // 
+            // betterListViewColumnHeader2
+            // 
+            this.betterListViewColumnHeader2.Name = "betterListViewColumnHeader2";
+            this.betterListViewColumnHeader2.Text = "Process Name";
+            // 
+            // betterListViewColumnHeader3
+            // 
+            this.betterListViewColumnHeader3.Name = "betterListViewColumnHeader3";
+            this.betterListViewColumnHeader3.Text = "PID";
+            // 
+            // betterListViewColumnHeader4
+            // 
+            this.betterListViewColumnHeader4.Name = "betterListViewColumnHeader4";
+            this.betterListViewColumnHeader4.Text = "Operation";
+            // 
+            // betterListViewColumnHeader5
+            // 
+            this.betterListViewColumnHeader5.Name = "betterListViewColumnHeader5";
+            this.betterListViewColumnHeader5.Text = "Path";
+            // 
             // AnalyzerForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -344,6 +379,11 @@
         private ComponentOwl.BetterListView.BetterListViewGroup betterListViewGroup2;
         private ComponentOwl.BetterListView.BetterListViewGroup betterListViewGroup3;
         private ComponentOwl.BetterListView.BetterListViewGroup betterListViewGroup4;
+        private ComponentOwl.BetterListView.BetterListViewColumnHeader betterListViewColumnHeader1;
+        private ComponentOwl.BetterListView.BetterListViewColumnHeader betterListViewColumnHeader2;
+        private ComponentOwl.BetterListView.BetterListViewColumnHeader betterListViewColumnHeader3;
+        private ComponentOwl.BetterListView.BetterListViewColumnHeader betterListViewColumnHeader4;
+        private ComponentOwl.BetterListView.BetterListViewColumnHeader betterListViewColumnHeader5;
     }
 }
 
