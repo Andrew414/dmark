@@ -80,7 +80,7 @@ DWORD WINAPI ProcessNetworkMessages(_In_ LPVOID parameter)
     {
         return -1;
     }
-    inum = i;
+    inum = i-2;
 
     for (d = alldevs, i = 0; i < inum - 1; d = d->next, i++)
     {
@@ -113,4 +113,14 @@ DWORD WINAPI ProcessNetworkMessages(_In_ LPVOID parameter)
     pcap_freealldevs(alldevs);
 
     return 0;
+}
+
+void StartPacketCapture()
+{
+    HANDLE thread = CreateThread(NULL, 0, ProcessNetworkMessages, 0, 0, NULL);
+
+    if (!thread)
+        return;
+
+    WaitForSingleObject(thread, INFINITE);
 }

@@ -35,9 +35,10 @@ DRIVER_CONNECTION connection;
 
 int CallbackMain()
 {
-    printf("CM BEGIN!\n");
     connection = ConnectToDriver();
-    printf("Connection %x!\n", connection);
+//    printf("Connection %x!\n", connection);
+
+    StartPacketCapture();
 
     return !IsConnectionSuccessful(connection);
 }

@@ -51,7 +51,7 @@ The second option is to start the live capture of the events right now (admin ri
         private void RunDriver() { }
         private void RunDcomm() 
         {
-            
+            System.Diagnostics.Process.Start(@"C:\Users\andre_000\OneDrive\Documents\Visual Studio 2013\Projects\dmark\C++\Debug\dcomm.exe");
         }
 
         private Event EventFromProcMonString(string line)
@@ -206,6 +206,8 @@ The second option is to start the live capture of the events right now (admin ri
                         RunDriver();
                     }
                     RunDcomm();
+
+                    NamedPipe pipe = new NamedPipe(@"\\.\pipe\dcommconnection", 0, this);
                 }
             }
             else
@@ -310,7 +312,7 @@ The second option is to start the live capture of the events right now (admin ri
             }
         }
 
-        private void ProcessEvent(Event evt)
+        public void ProcessEvent(Event evt)
         {
             foreach(var i in analyzis)
             {

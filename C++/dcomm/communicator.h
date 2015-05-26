@@ -8,6 +8,7 @@ int UninstallDriver();
 int IsConnectionSuccessful(DRIVER_CONNECTION connection);
 
 DRIVER_CONNECTION ConnectToDriver();
+void StartPacketCapture();
 
 int CallbackMain();
 
