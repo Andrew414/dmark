@@ -28,327 +28,364 @@
         /// </summary>
         private void InitializeComponent()
         {
-            ComponentOwl.BetterListView.BetterListViewItem betterListViewItem1;
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AnalyzerForm));
-            this.betterListViewGroup1 = new ComponentOwl.BetterListView.BetterListViewGroup();
-            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
-            this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.captureToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStrip1 = new System.Windows.Forms.ToolStrip();
-            this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
-            this.toolStripButton2 = new System.Windows.Forms.ToolStripButton();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.panel4 = new System.Windows.Forms.Panel();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.listView1 = new System.Windows.Forms.ListView();
-            this.splitter2 = new System.Windows.Forms.Splitter();
-            this.panel3 = new System.Windows.Forms.Panel();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.betterListView1 = new ComponentOwl.BetterListView.BetterListView();
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.betterListView2 = new ComponentOwl.BetterListView.BetterListView();
-            this.betterListViewGroup2 = new ComponentOwl.BetterListView.BetterListViewGroup();
-            this.betterListViewGroup3 = new ComponentOwl.BetterListView.BetterListViewGroup();
-            this.betterListViewGroup4 = new ComponentOwl.BetterListView.BetterListViewGroup();
-            this.splitter1 = new System.Windows.Forms.Splitter();
-            this.betterListViewColumnHeader1 = new ComponentOwl.BetterListView.BetterListViewColumnHeader();
-            this.betterListViewColumnHeader2 = new ComponentOwl.BetterListView.BetterListViewColumnHeader();
-            this.betterListViewColumnHeader3 = new ComponentOwl.BetterListView.BetterListViewColumnHeader();
-            this.betterListViewColumnHeader4 = new ComponentOwl.BetterListView.BetterListViewColumnHeader();
-            this.betterListViewColumnHeader5 = new ComponentOwl.BetterListView.BetterListViewColumnHeader();
-            betterListViewItem1 = new ComponentOwl.BetterListView.BetterListViewItem();
-            this.menuStrip1.SuspendLayout();
-            this.toolStrip1.SuspendLayout();
-            this.panel1.SuspendLayout();
-            this.panel4.SuspendLayout();
-            this.groupBox2.SuspendLayout();
-            this.panel3.SuspendLayout();
-            this.groupBox1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.betterListView1)).BeginInit();
-            this.panel2.SuspendLayout();
-            this.groupBox3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.betterListView2)).BeginInit();
+            this.highGroup = new ComponentOwl.BetterListView.BetterListViewGroup();
+            this.mainMenu = new System.Windows.Forms.MenuStrip();
+            this.fileMenu = new System.Windows.Forms.ToolStripMenuItem();
+            this.captureMenu = new System.Windows.Forms.ToolStripMenuItem();
+            this.helpMenu = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolMenu = new System.Windows.Forms.ToolStrip();
+            this.openButton = new System.Windows.Forms.ToolStripButton();
+            this.saveButton = new System.Windows.Forms.ToolStripButton();
+            this.leftPanel = new System.Windows.Forms.Panel();
+            this.eventMorePanel = new System.Windows.Forms.Panel();
+            this.eventMoreBox = new System.Windows.Forms.GroupBox();
+            this.eventMore = new System.Windows.Forms.ListView();
+            this.eventSplitter = new System.Windows.Forms.Splitter();
+            this.eventPanel = new System.Windows.Forms.Panel();
+            this.eventsBox = new System.Windows.Forms.GroupBox();
+            this.eventView = new ComponentOwl.BetterListView.BetterListView();
+            this.timeHeader = new ComponentOwl.BetterListView.BetterListViewColumnHeader();
+            this.processNameHeader = new ComponentOwl.BetterListView.BetterListViewColumnHeader();
+            this.pidHeader = new ComponentOwl.BetterListView.BetterListViewColumnHeader();
+            this.ppidHeader = new ComponentOwl.BetterListView.BetterListViewColumnHeader();
+            this.operationHeader = new ComponentOwl.BetterListView.BetterListViewColumnHeader();
+            this.pathHeader = new ComponentOwl.BetterListView.BetterListViewColumnHeader();
+            this.tidHeader = new ComponentOwl.BetterListView.BetterListViewColumnHeader();
+            this.imgPathHeader = new ComponentOwl.BetterListView.BetterListViewColumnHeader();
+            this.flagsHeader = new ComponentOwl.BetterListView.BetterListViewColumnHeader();
+            this.usernameHeader = new ComponentOwl.BetterListView.BetterListViewColumnHeader();
+            this.rightPanel = new System.Windows.Forms.Panel();
+            this.accidentsBox = new System.Windows.Forms.GroupBox();
+            this.accidentsView = new ComponentOwl.BetterListView.BetterListView();
+            this.mediumSeverity = new ComponentOwl.BetterListView.BetterListViewGroup();
+            this.lowGroup = new ComponentOwl.BetterListView.BetterListViewGroup();
+            this.otherGroup = new ComponentOwl.BetterListView.BetterListViewGroup();
+            this.verticalSplitter = new System.Windows.Forms.Splitter();
+            this.openLog = new System.Windows.Forms.OpenFileDialog();
+            this.mainMenu.SuspendLayout();
+            this.toolMenu.SuspendLayout();
+            this.leftPanel.SuspendLayout();
+            this.eventMorePanel.SuspendLayout();
+            this.eventMoreBox.SuspendLayout();
+            this.eventPanel.SuspendLayout();
+            this.eventsBox.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.eventView)).BeginInit();
+            this.rightPanel.SuspendLayout();
+            this.accidentsBox.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.accidentsView)).BeginInit();
             this.SuspendLayout();
             // 
-            // betterListViewItem1
+            // highGroup
             // 
-            betterListViewItem1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
-            betterListViewItem1.Group = this.betterListViewGroup1;
-            betterListViewItem1.Name = "betterListViewItem1";
-            betterListViewItem1.Text = "Torrents activated";
+            this.highGroup.Font = new System.Drawing.Font("Segoe UI", 11F);
+            this.highGroup.Header = "High Severity";
+            this.highGroup.Name = "highGroup";
             // 
-            // betterListViewGroup1
+            // mainMenu
             // 
-            this.betterListViewGroup1.Font = new System.Drawing.Font("Segoe UI", 11F);
-            this.betterListViewGroup1.Header = "High Severity";
-            this.betterListViewGroup1.Name = "betterListViewGroup1";
+            this.mainMenu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.fileMenu,
+            this.captureMenu,
+            this.helpMenu});
+            this.mainMenu.Location = new System.Drawing.Point(0, 0);
+            this.mainMenu.Name = "mainMenu";
+            this.mainMenu.Size = new System.Drawing.Size(803, 24);
+            this.mainMenu.TabIndex = 0;
+            this.mainMenu.Text = "menuStrip1";
             // 
-            // menuStrip1
+            // fileMenu
             // 
-            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.fileToolStripMenuItem,
-            this.captureToolStripMenuItem,
-            this.helpToolStripMenuItem});
-            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
-            this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(803, 24);
-            this.menuStrip1.TabIndex = 0;
-            this.menuStrip1.Text = "menuStrip1";
+            this.fileMenu.Name = "fileMenu";
+            this.fileMenu.Size = new System.Drawing.Size(37, 20);
+            this.fileMenu.Text = "File";
+            this.fileMenu.Click += new System.EventHandler(this.fileToolStripMenuItem_Click);
             // 
-            // fileToolStripMenuItem
+            // captureMenu
             // 
-            this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
-            this.fileToolStripMenuItem.Size = new System.Drawing.Size(37, 20);
-            this.fileToolStripMenuItem.Text = "File";
-            this.fileToolStripMenuItem.Click += new System.EventHandler(this.fileToolStripMenuItem_Click);
+            this.captureMenu.Name = "captureMenu";
+            this.captureMenu.Size = new System.Drawing.Size(61, 20);
+            this.captureMenu.Text = "Capture";
+            this.captureMenu.Click += new System.EventHandler(this.captureToolStripMenuItem_Click);
             // 
-            // captureToolStripMenuItem
+            // helpMenu
             // 
-            this.captureToolStripMenuItem.Name = "captureToolStripMenuItem";
-            this.captureToolStripMenuItem.Size = new System.Drawing.Size(61, 20);
-            this.captureToolStripMenuItem.Text = "Capture";
-            this.captureToolStripMenuItem.Click += new System.EventHandler(this.captureToolStripMenuItem_Click);
+            this.helpMenu.Name = "helpMenu";
+            this.helpMenu.Size = new System.Drawing.Size(44, 20);
+            this.helpMenu.Text = "Help";
+            this.helpMenu.Click += new System.EventHandler(this.helpToolStripMenuItem_Click);
             // 
-            // helpToolStripMenuItem
+            // toolMenu
             // 
-            this.helpToolStripMenuItem.Name = "helpToolStripMenuItem";
-            this.helpToolStripMenuItem.Size = new System.Drawing.Size(44, 20);
-            this.helpToolStripMenuItem.Text = "Help";
-            this.helpToolStripMenuItem.Click += new System.EventHandler(this.helpToolStripMenuItem_Click);
+            this.toolMenu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.openButton,
+            this.saveButton});
+            this.toolMenu.Location = new System.Drawing.Point(0, 24);
+            this.toolMenu.Name = "toolMenu";
+            this.toolMenu.Size = new System.Drawing.Size(803, 25);
+            this.toolMenu.TabIndex = 1;
+            this.toolMenu.Text = "toolStrip1";
+            this.toolMenu.ItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.toolStrip1_ItemClicked);
             // 
-            // toolStrip1
+            // openButton
             // 
-            this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripButton1,
-            this.toolStripButton2});
-            this.toolStrip1.Location = new System.Drawing.Point(0, 24);
-            this.toolStrip1.Name = "toolStrip1";
-            this.toolStrip1.Size = new System.Drawing.Size(803, 25);
-            this.toolStrip1.TabIndex = 1;
-            this.toolStrip1.Text = "toolStrip1";
-            this.toolStrip1.ItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.toolStrip1_ItemClicked);
+            this.openButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.openButton.Image = ((System.Drawing.Image)(resources.GetObject("openButton.Image")));
+            this.openButton.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.openButton.Name = "openButton";
+            this.openButton.Size = new System.Drawing.Size(23, 22);
+            this.openButton.Text = "toolStripButton1";
             // 
-            // toolStripButton1
+            // saveButton
             // 
-            this.toolStripButton1.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripButton1.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton1.Image")));
-            this.toolStripButton1.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButton1.Name = "toolStripButton1";
-            this.toolStripButton1.Size = new System.Drawing.Size(23, 22);
-            this.toolStripButton1.Text = "toolStripButton1";
+            this.saveButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.saveButton.Image = ((System.Drawing.Image)(resources.GetObject("saveButton.Image")));
+            this.saveButton.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.saveButton.Name = "saveButton";
+            this.saveButton.Size = new System.Drawing.Size(23, 22);
+            this.saveButton.Text = "toolStripButton2";
+            this.saveButton.Click += new System.EventHandler(this.saveButton_Click);
             // 
-            // toolStripButton2
+            // leftPanel
             // 
-            this.toolStripButton2.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripButton2.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton2.Image")));
-            this.toolStripButton2.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButton2.Name = "toolStripButton2";
-            this.toolStripButton2.Size = new System.Drawing.Size(23, 22);
-            this.toolStripButton2.Text = "toolStripButton2";
+            this.leftPanel.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.leftPanel.Controls.Add(this.eventMorePanel);
+            this.leftPanel.Controls.Add(this.eventSplitter);
+            this.leftPanel.Controls.Add(this.eventPanel);
+            this.leftPanel.Dock = System.Windows.Forms.DockStyle.Left;
+            this.leftPanel.Location = new System.Drawing.Point(0, 49);
+            this.leftPanel.Name = "leftPanel";
+            this.leftPanel.Size = new System.Drawing.Size(600, 338);
+            this.leftPanel.TabIndex = 2;
             // 
-            // panel1
+            // eventMorePanel
             // 
-            this.panel1.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.panel1.Controls.Add(this.panel4);
-            this.panel1.Controls.Add(this.splitter2);
-            this.panel1.Controls.Add(this.panel3);
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Left;
-            this.panel1.Location = new System.Drawing.Point(0, 49);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(600, 338);
-            this.panel1.TabIndex = 2;
+            this.eventMorePanel.Controls.Add(this.eventMoreBox);
+            this.eventMorePanel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.eventMorePanel.Location = new System.Drawing.Point(3, 338);
+            this.eventMorePanel.Name = "eventMorePanel";
+            this.eventMorePanel.Size = new System.Drawing.Size(597, 0);
+            this.eventMorePanel.TabIndex = 0;
             // 
-            // panel4
+            // eventMoreBox
             // 
-            this.panel4.Controls.Add(this.groupBox2);
-            this.panel4.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel4.Location = new System.Drawing.Point(3, 238);
-            this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(597, 100);
-            this.panel4.TabIndex = 0;
+            this.eventMoreBox.Controls.Add(this.eventMore);
+            this.eventMoreBox.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.eventMoreBox.Location = new System.Drawing.Point(0, 0);
+            this.eventMoreBox.Name = "eventMoreBox";
+            this.eventMoreBox.Size = new System.Drawing.Size(597, 0);
+            this.eventMoreBox.TabIndex = 0;
+            this.eventMoreBox.TabStop = false;
+            this.eventMoreBox.Text = "Event properties";
             // 
-            // groupBox2
+            // eventMore
             // 
-            this.groupBox2.Controls.Add(this.listView1);
-            this.groupBox2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.groupBox2.Location = new System.Drawing.Point(0, 0);
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(597, 100);
-            this.groupBox2.TabIndex = 0;
-            this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "Event properties";
+            this.eventMore.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.eventMore.Location = new System.Drawing.Point(3, 16);
+            this.eventMore.Name = "eventMore";
+            this.eventMore.Size = new System.Drawing.Size(591, 0);
+            this.eventMore.TabIndex = 0;
+            this.eventMore.UseCompatibleStateImageBehavior = false;
             // 
-            // listView1
+            // eventSplitter
             // 
-            this.listView1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.listView1.Location = new System.Drawing.Point(3, 16);
-            this.listView1.Name = "listView1";
-            this.listView1.Size = new System.Drawing.Size(591, 81);
-            this.listView1.TabIndex = 0;
-            this.listView1.UseCompatibleStateImageBehavior = false;
+            this.eventSplitter.Location = new System.Drawing.Point(0, 338);
+            this.eventSplitter.Name = "eventSplitter";
+            this.eventSplitter.Size = new System.Drawing.Size(3, 0);
+            this.eventSplitter.TabIndex = 1;
+            this.eventSplitter.TabStop = false;
             // 
-            // splitter2
+            // eventPanel
             // 
-            this.splitter2.Location = new System.Drawing.Point(0, 0);
-            this.splitter2.Name = "splitter2";
-            this.splitter2.Size = new System.Drawing.Size(3, 338);
-            this.splitter2.TabIndex = 1;
-            this.splitter2.TabStop = false;
+            this.eventPanel.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.eventPanel.Controls.Add(this.eventsBox);
+            this.eventPanel.Dock = System.Windows.Forms.DockStyle.Top;
+            this.eventPanel.Location = new System.Drawing.Point(0, 0);
+            this.eventPanel.Name = "eventPanel";
+            this.eventPanel.Size = new System.Drawing.Size(600, 338);
+            this.eventPanel.TabIndex = 0;
             // 
-            // panel3
+            // eventsBox
             // 
-            this.panel3.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.panel3.Controls.Add(this.groupBox1);
-            this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel3.Location = new System.Drawing.Point(0, 0);
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(600, 338);
-            this.panel3.TabIndex = 0;
+            this.eventsBox.Controls.Add(this.eventView);
+            this.eventsBox.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.eventsBox.Location = new System.Drawing.Point(0, 0);
+            this.eventsBox.Name = "eventsBox";
+            this.eventsBox.Size = new System.Drawing.Size(600, 338);
+            this.eventsBox.TabIndex = 0;
+            this.eventsBox.TabStop = false;
+            this.eventsBox.Text = "Events";
             // 
-            // groupBox1
+            // eventView
             // 
-            this.groupBox1.Controls.Add(this.betterListView1);
-            this.groupBox1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.groupBox1.Location = new System.Drawing.Point(0, 0);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(600, 338);
-            this.groupBox1.TabIndex = 0;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Events";
+            this.eventView.Columns.Add(this.timeHeader);
+            this.eventView.Columns.Add(this.processNameHeader);
+            this.eventView.Columns.Add(this.pidHeader);
+            this.eventView.Columns.Add(this.ppidHeader);
+            this.eventView.Columns.Add(this.operationHeader);
+            this.eventView.Columns.Add(this.pathHeader);
+            this.eventView.Columns.Add(this.tidHeader);
+            this.eventView.Columns.Add(this.imgPathHeader);
+            this.eventView.Columns.Add(this.flagsHeader);
+            this.eventView.Columns.Add(this.usernameHeader);
+            this.eventView.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.eventView.Location = new System.Drawing.Point(3, 16);
+            this.eventView.Name = "eventView";
+            this.eventView.Size = new System.Drawing.Size(594, 319);
+            this.eventView.TabIndex = 0;
+            this.eventView.SelectedIndexChanged += new System.EventHandler(this.eventView_SelectedIndexChanged);
             // 
-            // betterListView1
+            // timeHeader
             // 
-            this.betterListView1.Columns.Add(this.betterListViewColumnHeader1);
-            this.betterListView1.Columns.Add(this.betterListViewColumnHeader2);
-            this.betterListView1.Columns.Add(this.betterListViewColumnHeader3);
-            this.betterListView1.Columns.Add(this.betterListViewColumnHeader4);
-            this.betterListView1.Columns.Add(this.betterListViewColumnHeader5);
-            this.betterListView1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.betterListView1.Location = new System.Drawing.Point(3, 16);
-            this.betterListView1.Name = "betterListView1";
-            this.betterListView1.Size = new System.Drawing.Size(594, 319);
-            this.betterListView1.TabIndex = 0;
+            this.timeHeader.Name = "timeHeader";
+            this.timeHeader.Text = "Time";
             // 
-            // panel2
+            // processNameHeader
             // 
-            this.panel2.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.panel2.Controls.Add(this.groupBox3);
-            this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel2.Location = new System.Drawing.Point(600, 49);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(203, 338);
-            this.panel2.TabIndex = 4;
+            this.processNameHeader.Name = "processNameHeader";
+            this.processNameHeader.Text = "Process Name";
             // 
-            // groupBox3
+            // pidHeader
             // 
-            this.groupBox3.Controls.Add(this.betterListView2);
-            this.groupBox3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.groupBox3.Location = new System.Drawing.Point(0, 0);
-            this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(203, 338);
-            this.groupBox3.TabIndex = 0;
-            this.groupBox3.TabStop = false;
-            this.groupBox3.Text = "Accidents";
+            this.pidHeader.Name = "pidHeader";
+            this.pidHeader.Text = "Process ID";
             // 
-            // betterListView2
+            // ppidHeader
             // 
-            this.betterListView2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.betterListView2.FontItems = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.betterListView2.GridLines = ComponentOwl.BetterListView.BetterListViewGridLines.None;
-            this.betterListView2.GroupHeaderBehavior = ((ComponentOwl.BetterListView.BetterListViewGroupHeaderBehavior)((ComponentOwl.BetterListView.BetterListViewGroupHeaderBehavior.KeyboardFocus | ComponentOwl.BetterListView.BetterListViewGroupHeaderBehavior.MouseHighlight)));
-            this.betterListView2.Groups.Add(this.betterListViewGroup1);
-            this.betterListView2.Groups.Add(this.betterListViewGroup2);
-            this.betterListView2.Groups.Add(this.betterListViewGroup3);
-            this.betterListView2.Groups.Add(this.betterListViewGroup4);
-            this.betterListView2.HScrollBarDisplayMode = ComponentOwl.BetterListView.BetterListViewScrollBarDisplayMode.Hide;
-            this.betterListView2.Items.Add(betterListViewItem1);
-            this.betterListView2.Location = new System.Drawing.Point(3, 16);
-            this.betterListView2.Name = "betterListView2";
-            this.betterListView2.ShowEmptyGroups = true;
-            this.betterListView2.ShowGroups = true;
-            //this.betterListView2.Size = new System.Drawing.Size(197, 319);
-            this.betterListView2.TabIndex = 0;
+            this.ppidHeader.Name = "ppidHeader";
+            this.ppidHeader.Text = "Parend PID";
             // 
-            // betterListViewGroup2
+            // operationHeader
             // 
-            this.betterListViewGroup2.Font = new System.Drawing.Font("Segoe UI", 11F);
-            this.betterListViewGroup2.Header = "Medium Severity";
-            this.betterListViewGroup2.Name = "betterListViewGroup2";
+            this.operationHeader.Name = "operationHeader";
+            this.operationHeader.Text = "Operation";
             // 
-            // betterListViewGroup3
+            // pathHeader
             // 
-            this.betterListViewGroup3.Font = new System.Drawing.Font("Segoe UI", 11F);
-            this.betterListViewGroup3.Header = "Low Severity";
-            this.betterListViewGroup3.Name = "betterListViewGroup3";
+            this.pathHeader.Name = "pathHeader";
+            this.pathHeader.Text = "Path";
             // 
-            // betterListViewGroup4
+            // tidHeader
             // 
-            this.betterListViewGroup4.Font = new System.Drawing.Font("Segoe UI", 11F);
-            this.betterListViewGroup4.Header = "Other";
-            this.betterListViewGroup4.Name = "betterListViewGroup4";
+            this.tidHeader.Name = "tidHeader";
+            this.tidHeader.Text = "Thread ID";
             // 
-            // splitter1
+            // imgPathHeader
             // 
-            this.splitter1.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.splitter1.Location = new System.Drawing.Point(600, 49);
-            this.splitter1.Name = "splitter1";
-            this.splitter1.Size = new System.Drawing.Size(3, 338);
-            this.splitter1.TabIndex = 5;
-            this.splitter1.TabStop = false;
+            this.imgPathHeader.Name = "imgPathHeader";
+            this.imgPathHeader.Text = "Process path";
             // 
-            // betterListViewColumnHeader1
+            // flagsHeader
             // 
-            this.betterListViewColumnHeader1.Name = "betterListViewColumnHeader1";
-            this.betterListViewColumnHeader1.Text = "Time";
+            this.flagsHeader.Name = "flagsHeader";
+            this.flagsHeader.Text = "Flags";
             // 
-            // betterListViewColumnHeader2
+            // usernameHeader
             // 
-            this.betterListViewColumnHeader2.Name = "betterListViewColumnHeader2";
-            this.betterListViewColumnHeader2.Text = "Process Name";
+            this.usernameHeader.Name = "usernameHeader";
+            this.usernameHeader.Text = "Username";
             // 
-            // betterListViewColumnHeader3
+            // rightPanel
             // 
-            this.betterListViewColumnHeader3.Name = "betterListViewColumnHeader3";
-            this.betterListViewColumnHeader3.Text = "PID";
+            this.rightPanel.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.rightPanel.Controls.Add(this.accidentsBox);
+            this.rightPanel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.rightPanel.Location = new System.Drawing.Point(600, 49);
+            this.rightPanel.Name = "rightPanel";
+            this.rightPanel.Size = new System.Drawing.Size(203, 338);
+            this.rightPanel.TabIndex = 4;
             // 
-            // betterListViewColumnHeader4
+            // accidentsBox
             // 
-            this.betterListViewColumnHeader4.Name = "betterListViewColumnHeader4";
-            this.betterListViewColumnHeader4.Text = "Operation";
+            this.accidentsBox.Controls.Add(this.accidentsView);
+            this.accidentsBox.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.accidentsBox.Location = new System.Drawing.Point(0, 0);
+            this.accidentsBox.Name = "accidentsBox";
+            this.accidentsBox.Size = new System.Drawing.Size(203, 338);
+            this.accidentsBox.TabIndex = 0;
+            this.accidentsBox.TabStop = false;
+            this.accidentsBox.Text = "Accidents";
             // 
-            // betterListViewColumnHeader5
+            // accidentsView
             // 
-            this.betterListViewColumnHeader5.Name = "betterListViewColumnHeader5";
-            this.betterListViewColumnHeader5.Text = "Path";
+            this.accidentsView.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.accidentsView.FontItems = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.accidentsView.GridLines = ComponentOwl.BetterListView.BetterListViewGridLines.None;
+            this.accidentsView.GroupHeaderBehavior = ((ComponentOwl.BetterListView.BetterListViewGroupHeaderBehavior)((ComponentOwl.BetterListView.BetterListViewGroupHeaderBehavior.KeyboardFocus | ComponentOwl.BetterListView.BetterListViewGroupHeaderBehavior.MouseHighlight)));
+            this.accidentsView.Groups.Add(this.highGroup);
+            this.accidentsView.Groups.Add(this.mediumSeverity);
+            this.accidentsView.Groups.Add(this.lowGroup);
+            this.accidentsView.Groups.Add(this.otherGroup);
+            this.accidentsView.HScrollBarDisplayMode = ComponentOwl.BetterListView.BetterListViewScrollBarDisplayMode.Hide;
+            this.accidentsView.Location = new System.Drawing.Point(3, 16);
+            this.accidentsView.MaximumSize = new System.Drawing.Size(500, 500);
+            this.accidentsView.Name = "accidentsView";
+            this.accidentsView.ShowEmptyGroups = true;
+            this.accidentsView.ShowGroups = true;
+            //this.accidentsView.Size = new System.Drawing.Size(197, 319);
+            this.accidentsView.TabIndex = 0;
+            // 
+            // mediumSeverity
+            // 
+            this.mediumSeverity.Font = new System.Drawing.Font("Segoe UI", 11F);
+            this.mediumSeverity.Header = "Medium Severity";
+            this.mediumSeverity.Name = "mediumSeverity";
+            // 
+            // lowGroup
+            // 
+            this.lowGroup.Font = new System.Drawing.Font("Segoe UI", 11F);
+            this.lowGroup.Header = "Low Severity";
+            this.lowGroup.Name = "lowGroup";
+            // 
+            // otherGroup
+            // 
+            this.otherGroup.Font = new System.Drawing.Font("Segoe UI", 11F);
+            this.otherGroup.Header = "Other";
+            this.otherGroup.Name = "otherGroup";
+            // 
+            // verticalSplitter
+            // 
+            this.verticalSplitter.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.verticalSplitter.Location = new System.Drawing.Point(600, 49);
+            this.verticalSplitter.Name = "verticalSplitter";
+            this.verticalSplitter.Size = new System.Drawing.Size(3, 338);
+            this.verticalSplitter.TabIndex = 5;
+            this.verticalSplitter.TabStop = false;
+            this.verticalSplitter.SplitterMoved += new System.Windows.Forms.SplitterEventHandler(this.verticalSplitter_SplitterMoved);
+            // 
+            // openLog
+            // 
+            this.openLog.FileName = "LogFile.CSV";
+            this.openLog.Filter = "Process Monitor CSV logs (*.csv)|*.csv";
             // 
             // AnalyzerForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(803, 387);
-            this.Controls.Add(this.splitter1);
-            this.Controls.Add(this.panel2);
-            this.Controls.Add(this.panel1);
-            this.Controls.Add(this.toolStrip1);
-            this.Controls.Add(this.menuStrip1);
-            this.MainMenuStrip = this.menuStrip1;
+            this.Controls.Add(this.verticalSplitter);
+            this.Controls.Add(this.rightPanel);
+            this.Controls.Add(this.leftPanel);
+            this.Controls.Add(this.toolMenu);
+            this.Controls.Add(this.mainMenu);
+            this.MainMenuStrip = this.mainMenu;
             this.Name = "AnalyzerForm";
-            this.Text = "Form1";
-            this.menuStrip1.ResumeLayout(false);
-            this.menuStrip1.PerformLayout();
-            this.toolStrip1.ResumeLayout(false);
-            this.toolStrip1.PerformLayout();
-            this.panel1.ResumeLayout(false);
-            this.panel4.ResumeLayout(false);
-            this.groupBox2.ResumeLayout(false);
-            this.panel3.ResumeLayout(false);
-            this.groupBox1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.betterListView1)).EndInit();
-            this.panel2.ResumeLayout(false);
-            this.groupBox3.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.betterListView2)).EndInit();
+            this.Text = "Eventz";
+            this.Load += new System.EventHandler(this.AnalyzerForm_Load);
+            this.Resize += new System.EventHandler(this.AnalyzerForm_Resize);
+            this.mainMenu.ResumeLayout(false);
+            this.mainMenu.PerformLayout();
+            this.toolMenu.ResumeLayout(false);
+            this.toolMenu.PerformLayout();
+            this.leftPanel.ResumeLayout(false);
+            this.eventMorePanel.ResumeLayout(false);
+            this.eventMoreBox.ResumeLayout(false);
+            this.eventPanel.ResumeLayout(false);
+            this.eventsBox.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.eventView)).EndInit();
+            this.rightPanel.ResumeLayout(false);
+            this.accidentsBox.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.accidentsView)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -356,34 +393,40 @@
 
         #endregion
 
-        private System.Windows.Forms.MenuStrip menuStrip1;
-        private System.Windows.Forms.ToolStripMenuItem fileToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem captureToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem helpToolStripMenuItem;
-        private System.Windows.Forms.ToolStrip toolStrip1;
-        private System.Windows.Forms.ToolStripButton toolStripButton1;
-        private System.Windows.Forms.ToolStripButton toolStripButton2;
-        private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.Splitter splitter1;
-        private System.Windows.Forms.Panel panel3;
-        private System.Windows.Forms.Splitter splitter2;
-        private System.Windows.Forms.Panel panel4;
-        private System.Windows.Forms.GroupBox groupBox2;
-        private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.GroupBox groupBox3;
-        private System.Windows.Forms.ListView listView1;
-        private ComponentOwl.BetterListView.BetterListView betterListView1;
-        private ComponentOwl.BetterListView.BetterListView betterListView2;
-        private ComponentOwl.BetterListView.BetterListViewGroup betterListViewGroup1;
-        private ComponentOwl.BetterListView.BetterListViewGroup betterListViewGroup2;
-        private ComponentOwl.BetterListView.BetterListViewGroup betterListViewGroup3;
-        private ComponentOwl.BetterListView.BetterListViewGroup betterListViewGroup4;
-        private ComponentOwl.BetterListView.BetterListViewColumnHeader betterListViewColumnHeader1;
-        private ComponentOwl.BetterListView.BetterListViewColumnHeader betterListViewColumnHeader2;
-        private ComponentOwl.BetterListView.BetterListViewColumnHeader betterListViewColumnHeader3;
-        private ComponentOwl.BetterListView.BetterListViewColumnHeader betterListViewColumnHeader4;
-        private ComponentOwl.BetterListView.BetterListViewColumnHeader betterListViewColumnHeader5;
+        private System.Windows.Forms.MenuStrip mainMenu;
+        private System.Windows.Forms.ToolStripMenuItem fileMenu;
+        private System.Windows.Forms.ToolStripMenuItem captureMenu;
+        private System.Windows.Forms.ToolStripMenuItem helpMenu;
+        private System.Windows.Forms.ToolStrip toolMenu;
+        private System.Windows.Forms.ToolStripButton openButton;
+        private System.Windows.Forms.ToolStripButton saveButton;
+        private System.Windows.Forms.Panel leftPanel;
+        private System.Windows.Forms.Panel rightPanel;
+        private System.Windows.Forms.Splitter verticalSplitter;
+        private System.Windows.Forms.Panel eventPanel;
+        private System.Windows.Forms.Splitter eventSplitter;
+        private System.Windows.Forms.Panel eventMorePanel;
+        private System.Windows.Forms.GroupBox eventMoreBox;
+        private System.Windows.Forms.GroupBox eventsBox;
+        private System.Windows.Forms.GroupBox accidentsBox;
+        private System.Windows.Forms.ListView eventMore;
+        private ComponentOwl.BetterListView.BetterListView eventView;
+        private ComponentOwl.BetterListView.BetterListView accidentsView;
+        private ComponentOwl.BetterListView.BetterListViewGroup highGroup;
+        private ComponentOwl.BetterListView.BetterListViewGroup mediumSeverity;
+        private ComponentOwl.BetterListView.BetterListViewGroup lowGroup;
+        private ComponentOwl.BetterListView.BetterListViewGroup otherGroup;
+        private ComponentOwl.BetterListView.BetterListViewColumnHeader timeHeader;
+        private ComponentOwl.BetterListView.BetterListViewColumnHeader processNameHeader;
+        private ComponentOwl.BetterListView.BetterListViewColumnHeader pidHeader;
+        private ComponentOwl.BetterListView.BetterListViewColumnHeader operationHeader;
+        private ComponentOwl.BetterListView.BetterListViewColumnHeader pathHeader;
+        private System.Windows.Forms.OpenFileDialog openLog;
+        private ComponentOwl.BetterListView.BetterListViewColumnHeader ppidHeader;
+        private ComponentOwl.BetterListView.BetterListViewColumnHeader tidHeader;
+        private ComponentOwl.BetterListView.BetterListViewColumnHeader imgPathHeader;
+        private ComponentOwl.BetterListView.BetterListViewColumnHeader flagsHeader;
+        private ComponentOwl.BetterListView.BetterListViewColumnHeader usernameHeader;
     }
 }
 

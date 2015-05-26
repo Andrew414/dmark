@@ -1,6 +1,6 @@
 #include "communicator.h"
 
-int SendMessage(PMARK_EVENT event)
+int SendMessageToAnalyzer(PMARK_EVENT event)
 {
     return 0;
 }

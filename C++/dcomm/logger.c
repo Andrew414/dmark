@@ -1,7 +1,7 @@
 #include "communicator.h"
 #include <stdio.h>
 
-int SaveMessage(PMARK_EVENT evt)
+int SaveMessageToLog(PMARK_EVENT evt)
 {
     printf("%x: PID:%6x, PPID:%6x, TID:%6x, OPERATION=%s.%s, FLAGS=%8x, USERNAME=%S, PATH=%S, IMAGE=%S, PROCESS=%S\n",
         evt->time,

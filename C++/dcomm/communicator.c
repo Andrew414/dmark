@@ -46,12 +46,12 @@ int ProcessMessage(PMARK_EVENT event)
 {
     if (g_OfflineMode)
     {
-        SaveMessage(event);
+        SaveMessageToLog(event);
     }
 
     if (g_MonitorConnection)
     {
-        SendMessage(event);
+        SendMessageToAnalyzer(event);
     }
 
     return 0;

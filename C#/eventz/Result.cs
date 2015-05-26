@@ -6,8 +6,23 @@ using System.Threading.Tasks;
 
 namespace eventz
 {
-    class Result
+    public class Result
     {
-        string status;
+        public Result(string header, string desc, int level, int confidence, int id)
+        {
+            Header = header;
+            Description = desc;
+            Level = level;
+            Confidence = confidence;
+            Id = id;
+        }
+
+        public string Header;
+        public string Description;
+
+        public int Level;
+        public int Confidence;
+
+        public int Id;
     }
 }

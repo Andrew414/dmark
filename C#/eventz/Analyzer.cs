@@ -8,6 +8,6 @@ namespace eventz
 {
     class Analyzer
     {
-        //ReportEvent();
+        
     }
 }

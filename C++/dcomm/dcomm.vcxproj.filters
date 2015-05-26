@@ -33,9 +33,18 @@
     <ClCompile Include="userutil.c">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="packets.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="communicator.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="tcpip.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="precomp.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

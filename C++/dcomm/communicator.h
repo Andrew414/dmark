@@ -16,7 +16,7 @@ int ProcessMessage(PMARK_EVENT event);
 extern int g_OfflineMode;
 extern int g_MonitorConnection;
 
-int SendMessage(PMARK_EVENT event);
-int SaveMessage(PMARK_EVENT event);
+int SendMessageToAnalyzer(PMARK_EVENT event);
+int SaveMessageToLog(PMARK_EVENT event);
 
 int UniqueProcess();

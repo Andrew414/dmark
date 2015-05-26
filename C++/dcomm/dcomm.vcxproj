@@ -48,7 +48,7 @@
     </ClCompile>
     <Link>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalDependencies>FltLib.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>FltLib.lib;wpcap.lib;packet.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
@@ -64,7 +64,7 @@
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
-      <AdditionalDependencies>FltLib.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>FltLib.lib;wpcap.lib;packet.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
@@ -73,10 +73,13 @@
     <ClCompile Include="connection.c" />
     <ClCompile Include="installation.c" />
     <ClCompile Include="logger.c" />
+    <ClCompile Include="packets.c" />
     <ClCompile Include="userutil.c" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="communicator.h" />
+    <ClInclude Include="precomp.h" />
+    <ClInclude Include="tcpip.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
