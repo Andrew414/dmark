@@ -17,7 +17,7 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "usermodesimulation", "userm
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "dcomm", "dcomm\dcomm.vcxproj", "{335342DA-22A2-40C3-B4CA-2F1D50D48BE6}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "eventz", "..\C#\eventz\eventz.csproj", "{177692F4-2DBC-4738-AE4A-FFB82126FF99}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "events", "..\C#\eventz\events.csproj", "{177692F4-2DBC-4738-AE4A-FFB82126FF99}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PSTaskDialog", "..\..\..\..\..\..\Documents\Visual Studio 2013\Projects\dmark\C#\PSTaskDialog\PSTaskDialog\PSTaskDialog.csproj", "{0253E98B-6374-48AA-8740-89BC2939FF77}"
 EndProject

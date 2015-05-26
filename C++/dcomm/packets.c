@@ -84,14 +84,12 @@ DWORD WINAPI ProcessNetworkMessages(_In_ LPVOID parameter)
 
     for (d = alldevs, i = 0; i < inum - 1; d = d->next, i++)
     {
-        /* Open the device */
-        /* Open the adapter */
-        if ((adhandle = pcap_open_live(d->name,	// name of the device
-            65536,			// portion of the packet to capture. 
-            // 65536 grants that the whole packet will be captured on all the MACs.
-            1,				// promiscuous mode (nonzero means promiscuous)
-            1000,			// read timeout
-            errbuf			// error buffer
+        // Open the device
+        if ((adhandle = pcap_open_live(d->name,	
+            65536,			
+            1,				
+            1000,			
+            errbuf			
             )) == NULL)
         {
             return -1;
@@ -103,7 +101,7 @@ DWORD WINAPI ProcessNetworkMessages(_In_ LPVOID parameter)
             addrs = addrs->next;
         }
 
-        /* start the capture */
+        // start the capture
         pcap_loop(adhandle, 0, HandlePacket, NULL);
 
         pcap_close(adhandle);

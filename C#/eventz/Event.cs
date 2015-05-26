@@ -11,7 +11,9 @@ namespace eventz
 
     public class Event
     {
-        public Event(string procName, string userName, string imgPath, string opPath, DateTime time, long flags, long pid, long ppid, long tid, OperationClass opClass, OperationType opType)
+        public Event(string procName, string userName, string imgPath, 
+            string opPath, DateTime time, long flags, long pid, long ppid, 
+            long tid, OperationClass opClass, OperationType opType)
         {
             ProcessName = procName;
             UserName = userName;

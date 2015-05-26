@@ -322,7 +322,7 @@
             this.accidentsView.Name = "accidentsView";
             this.accidentsView.ShowEmptyGroups = true;
             this.accidentsView.ShowGroups = true;
-            //this.accidentsView.Size = new System.Drawing.Size(197, 319);
+            this.accidentsView.Size = new System.Drawing.Size(197, 319);
             this.accidentsView.TabIndex = 0;
             // 
             // mediumSeverity
@@ -370,7 +370,7 @@
             this.Controls.Add(this.mainMenu);
             this.MainMenuStrip = this.mainMenu;
             this.Name = "AnalyzerForm";
-            this.Text = "Eventz";
+            this.Text = "Events";
             this.Load += new System.EventHandler(this.AnalyzerForm_Load);
             this.Resize += new System.EventHandler(this.AnalyzerForm_Resize);
             this.mainMenu.ResumeLayout(false);

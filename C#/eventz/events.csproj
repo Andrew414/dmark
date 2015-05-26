@@ -67,8 +67,10 @@
     <Compile Include="AnalyzerForm.Designer.cs">
       <DependentUpon>AnalyzerForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Modules\AutoRunChecker.cs" />
     <Compile Include="IAnalyzer.cs" />
     <Compile Include="Event.cs" />
+    <Compile Include="Modules\Eicar.cs" />
     <Compile Include="Modules\TorrentSeeker.cs" />
     <Compile Include="NamedPipe.cs" />
     <Compile Include="Program.cs" />

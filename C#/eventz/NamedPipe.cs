@@ -66,13 +66,11 @@ namespace eventz
 
                 clientHandle = CreateNamedPipe(this.pipeName, DUPLEX | FILE_FLAG_OVERLAPPED, 0, 255, BUFFER_SIZE, BUFFER_SIZE, 0, IntPtr.Zero);
 
-                //could not create named pipe
                 if (clientHandle.IsInvalid)
                     return;
 
                 int success = ConnectNamedPipe(clientHandle, IntPtr.Zero);
 
-                //could not connect client
                 if (success == 0)
                     return;
 
@@ -89,8 +87,6 @@ namespace eventz
         }
         private void Read()
         {
-            //Client client = (Client)clientObj;
-            //clientse.stream = new FileStream(clientse.handle, FileAccess.ReadWrite, BUFFER_SIZE, true);
             byte[] buffer = null;
             ASCIIEncoding encoder = new ASCIIEncoding();
 
@@ -106,17 +102,11 @@ namespace eventz
                 }
                 catch
                 {
-                    //read error has occurred
                     break;
                 }
 
-                //client has disconnected
                 if (bytesRead == 0)
                     break;
-
-                //fire message received event
-                //if (this.MessageReceived != null)
-                //    this.MessageReceived(clientse, encoder.GetString(buffer, 0, bytesRead));
 
                 int ReadLength = 0;
                 for (int i = 0; i < BUFFER_SIZE; i++)
@@ -140,7 +130,6 @@ namespace eventz
 
             }
 
-            //clean up resources
             clientse.stream.Close();
             clientse.handle.Close();
 
@@ -148,13 +137,9 @@ namespace eventz
         
         public void StopServer()
         {
-            //clean up resources
-
             DisconnectNamedPipe(this.clientHandle);
-
 
             this.listenThread.Abort();
         }
-
     }
 }
