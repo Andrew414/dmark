@@ -1,0 +1,9 @@
+[Version]
+Signature="$WINDOWS NT$"
+DriverVer=03/22/2015,0.25.32.62
+
+[nonpnp.NT.Wdf]
+KmdfService = nonpnp, nonpnp_Service_kmdfInst
+
+[nonpnp_Service_kmdfInst]
+KmdfLibraryVersion = 1.11

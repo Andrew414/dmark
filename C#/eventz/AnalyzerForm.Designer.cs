@@ -37,6 +37,7 @@
             this.toolMenu = new System.Windows.Forms.ToolStrip();
             this.openButton = new System.Windows.Forms.ToolStripButton();
             this.saveButton = new System.Windows.Forms.ToolStripButton();
+            this.filterBox = new System.Windows.Forms.ToolStripTextBox();
             this.leftPanel = new System.Windows.Forms.Panel();
             this.eventMorePanel = new System.Windows.Forms.Panel();
             this.eventMoreBox = new System.Windows.Forms.GroupBox();
@@ -119,7 +120,8 @@
             // 
             this.toolMenu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.openButton,
-            this.saveButton});
+            this.saveButton,
+            this.filterBox});
             this.toolMenu.Location = new System.Drawing.Point(0, 24);
             this.toolMenu.Name = "toolMenu";
             this.toolMenu.Size = new System.Drawing.Size(803, 25);
@@ -145,6 +147,15 @@
             this.saveButton.Size = new System.Drawing.Size(23, 22);
             this.saveButton.Text = "toolStripButton2";
             this.saveButton.Click += new System.EventHandler(this.saveButton_Click);
+            // 
+            // filterBox
+            // 
+            this.filterBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.filterBox.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.filterBox.Name = "filterBox";
+            this.filterBox.Size = new System.Drawing.Size(100, 25);
+            this.filterBox.Text = "filter...";
+            this.filterBox.TextChanged += new System.EventHandler(this.filterBox_TextChanged);
             // 
             // leftPanel
             // 
@@ -322,7 +333,7 @@
             this.accidentsView.Name = "accidentsView";
             this.accidentsView.ShowEmptyGroups = true;
             this.accidentsView.ShowGroups = true;
-            this.accidentsView.Size = new System.Drawing.Size(197, 319);
+            //this.accidentsView.Size = new System.Drawing.Size(197, 319);
             this.accidentsView.TabIndex = 0;
             // 
             // mediumSeverity
@@ -427,6 +438,7 @@
         private ComponentOwl.BetterListView.BetterListViewColumnHeader imgPathHeader;
         private ComponentOwl.BetterListView.BetterListViewColumnHeader flagsHeader;
         private ComponentOwl.BetterListView.BetterListViewColumnHeader usernameHeader;
+        private System.Windows.Forms.ToolStripTextBox filterBox;
     }
 }
 

@@ -42,8 +42,10 @@
     <ApplicationManifest>Properties\app.manifest</ApplicationManifest>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="BetterListViewExpress, Version=3.14.0.0, Culture=neutral, PublicKeyToken=e6c91a3add447be2, processorArchitecture=MSIL" />
-    <Reference Include="BetterSplitButton, Version=2.0.3.0, Culture=neutral, PublicKeyToken=e6c91a3add447be2, processorArchitecture=MSIL" />
+    <Reference Include="betterlistviewexpress-net45, Version=3.15.0.0, Culture=neutral, PublicKeyToken=e6c91a3add447be2, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Program Files\Component Owl\Better ListView Express\Redistributable\.NET Framework Specific\.NET Framework 4.5\betterlistviewexpress-net45.dll</HintPath>
+    </Reference>
     <Reference Include="PSTaskDialog, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\..\..\..\..\..\Documents\Visual Studio 2013\Projects\dmark\C#\PSTaskDialog\PSTaskDialog\bin\PSTaskDialog.dll</HintPath>
@@ -70,8 +72,13 @@
     <Compile Include="Modules\AutoRunChecker.cs" />
     <Compile Include="IAnalyzer.cs" />
     <Compile Include="Event.cs" />
+    <Compile Include="Modules\BotTrojan.cs" />
     <Compile Include="Modules\Eicar.cs" />
+    <Compile Include="Modules\HiddenNTFS.cs" />
+    <Compile Include="Modules\SharingCloud.cs" />
+    <Compile Include="Modules\StaticCheck.cs" />
     <Compile Include="Modules\TorrentSeeker.cs" />
+    <Compile Include="Modules\Tunnel.cs" />
     <Compile Include="NamedPipe.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

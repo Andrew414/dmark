@@ -234,7 +234,7 @@ The second option is to start the live capture of the events right now (admin ri
                                 ProcessEvent(evt);
                             }
                         }
-                        catch (Exception e) { }
+                        catch (Exception) { }
                     }
                     /*}
                     catch (Exception e)
@@ -253,6 +253,10 @@ The second option is to start the live capture of the events right now (admin ri
                 //MessageBox.Show("Jey!");
                 eventView.Items.Clear();
             }
+
+            if (!evt.ProcessName.ToUpper().Contains((filterBox.Text == "filter...") ? "" : filterBox.Text.ToUpper()))
+                return;
+
             string[] subitems = new string[10];
             subitems[0] = (evt.Time.Hour < 10 ? "0" : "") + evt.Time.Hour.ToString() + ":" + 
                 (evt.Time.Minute < 10 ? "0" : "") + evt.Time.Minute.ToString() + ":" +
@@ -273,6 +277,10 @@ The second option is to start the live capture of the events right now (admin ri
                 eventView.SelectedValue = eventView.Items.Last();
             }
             count++;
+
+            eventMore.Items.Clear();
+            eventMore.Items.Add("Processed: " + eventView.Items.Count.ToString() + " events");
+            eventMore.Items.Add("Found: " + accidentsView.Items.Count.ToString() + " accidents");
         }
 
         private int totalCount = 0;
@@ -304,11 +312,25 @@ The second option is to start the live capture of the events right now (admin ri
 
         private void InitializeAllModules()
         {
-            analyzis.Add(new eventz.Modules.TorrentSeeker(ProcessResult));
+            analyzis.Add(new eventz.Modules.AutoRunChecker(ProcessResult));
+            analyzis.Add(new eventz.Modules.BotTrojan(ProcessResult));
+            analyzis.Add(new eventz.Modules.Eicar(ProcessResult));
+            analyzis.Add(new eventz.Modules.HiddenNTFS(ProcessResult));
 
-            foreach(var i in analyzis)
+            analyzis.Add(new eventz.Modules.SharingCloud(ProcessResult));
+            analyzis.Add(new eventz.Modules.StaticCheck(ProcessResult));
+            analyzis.Add(new eventz.Modules.TorrentSeeker(ProcessResult));
+            analyzis.Add(new eventz.Modules.Tunnel(ProcessResult));
+
+
+            foreach (var i in analyzis)
             {
                 i.Initialize();
+                string useless = null;
+                bool delete = false;
+                i.GetInformation(out useless, out useless, out useless, out delete);
+                if (delete) ;
+                    //analyzis[analyzis.IndexOf(i)] = null;
             }
         }
 
@@ -316,7 +338,10 @@ The second option is to start the live capture of the events right now (admin ri
         {
             foreach(var i in analyzis)
             {
-                i.ProcessEvent(evt);
+                if (i != null)
+                {
+                    i.ProcessEvent(evt);
+                }
             }
 
             AddEventToEventList(evt);
@@ -373,6 +398,13 @@ The second option is to start the live capture of the events right now (admin ri
         private void saveButton_Click(object sender, EventArgs e)
         {
             LoadData();
+        }
+
+        private void filterBox_TextChanged(object sender, EventArgs e)
+        {
+            var left = eventView.Items.Where(x => x.SubItems[1].Text.ToUpper().Contains(filterBox.Text.ToUpper())).ToList();
+            eventView.Items.Clear();
+            eventView.Items.AddRange(left);
         }
     }
 }

@@ -19,7 +19,9 @@ namespace eventz.Modules
 
         public void GetInformation(out string name, out string description, out string version, out bool noSubscription)
         {
-            name = description = version = "";
+            name = "Torrent seeker";
+            description = "";
+            version = "0.1";
             noSubscription = false;
         }
         public void ProcessEvent(Event evt)
